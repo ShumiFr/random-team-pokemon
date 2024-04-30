@@ -1,0 +1,172 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  background: lightgray;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  margin-top: 50px;
+}
+
+h1 {
+  font-family: "Carter One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  color: black;
+}
+
+button {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background: #303134;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  padding: 20px 60px;
+  text-align: center;
+  transition: all 0.3s;
+  margin-top: 50px;
+}
+
+button:hover {
+  background: #3f3f3f;
+  cursor: pointer;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.main header h1 {
+  margin-left: 32px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.cost-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.cost-filter input[type="radio"] {
+  display: none;
+}
+
+.cost-filter label {
+  margin: 0 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cost-filter label span {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background-color: #f2f2f2;
+}
+
+.cost-filter input[type="radio"]:checked + span {
+  background-color: #303134;
+  color: white;
+}
+
+.gallery-card {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  width: 200px;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  cursor: pointer;
+  background: #f4f4f4;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -50px;
+  width: 150%;
+  height: 50%;
+  background: var(--color);
+  z-index: 1;
+  border-radius: 0 0 200px 200px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 var(--color);
+}
+
+.card img {
+  position: relative;
+  width: 50%;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  height: auto;
+  filter: drop-shadow(0 0 0.5rem var(--color));
+  transition: all 0.3s;
+  z-index: 20;
+  filter: saturate(150%);
+}
+
+.card img:hover {
+  scale: 1.1;
+}
+
+.card h2,
+h3 {
+  text-align: center;
+  font-size: 20px;
+  color: var(--color);
+  text-shadow: #000 1px 1px 1px;
+}
+
+.card p {
+  text-align: center;
+  font-size: 16px;
+}
+
+.cost {
+  font-family: "Carter One", system-ui;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px 20px 0 0;
+  color: var(--color);
+  filter: brightness(50%);
+  font-size: 30px !important;
+  z-index: 10;
+}

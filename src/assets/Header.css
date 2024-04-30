@@ -1,0 +1,35 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+}
+
+header h1 {
+  font-family: "Carter One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  margin: 0;
+  color: white;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li {
+  list-style-type: none;
+  margin: 10px;
+  font-size: 20px;
+}
+
+li:last-child {
+  margin-right: 80px;
+  margin-left: 50px;
+}
