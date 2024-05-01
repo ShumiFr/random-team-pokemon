@@ -70,3 +70,18 @@ section h2 {
   width: 80%;
   font-size: 30px;
 }
+
+@media screen and (max-width: 480px) {
+  .pokedex a {
+    display: flex;
+    margin-bottom: 20px !important;
+  }
+
+  .nav-generation {
+    flex-wrap: wrap;
+  }
+
+  section h2 {
+    font-size: 40px;
+  }
+}
