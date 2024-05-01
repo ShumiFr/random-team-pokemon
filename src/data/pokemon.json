@@ -49,6 +49,13 @@
     "type": "Normal"
   },
   {
+    "dex": "19-regional-a",
+    "name": "Rattata d'Alola",
+    "cost": 2,
+    "image": "rattata-alola",
+    "type": "Dark"
+  },
+  {
     "dex": "21",
     "name": "Piafabec",
     "cost": 2,
@@ -77,6 +84,13 @@
     "type": "Ground"
   },
   {
+    "dex": "27-regional-a",
+    "name": "Sabelette d'Alola",
+    "cost": 4,
+    "image": "sandshrew-alola",
+    "type": "Ice"
+  },
+  {
     "dex": "29",
     "name": "Nidoran Femelle",
     "cost": 3,
@@ -103,6 +117,13 @@
     "cost": 3,
     "image": "vulpix",
     "type": "Fire"
+  },
+  {
+    "dex": "37-regional-a",
+    "name": "Goupix d'Alola",
+    "cost": 4,
+    "image": "vulpix-alola",
+    "type": "Ice"
   },
   {
     "dex": "39",
@@ -147,11 +168,32 @@
     "type": "Ground"
   },
   {
+    "dex": "50-regional-a",
+    "name": "Taupiqueur d'Alola",
+    "cost": 3,
+    "image": "diglett-alola",
+    "type": "Ground"
+  },
+  {
     "dex": "52",
     "name": "Miaous",
     "cost": 4,
     "image": "meowth",
     "type": "Normal"
+  },
+  {
+    "dex": "52-regional-a",
+    "name": "Miaous d'Alola",
+    "cost": 4,
+    "image": "meowth-alola",
+    "type": "Dark"
+  },
+  {
+    "dex": "52-regional-g",
+    "name": "Miaous de Galar",
+    "cost": 4,
+    "image": "meowth-galar",
+    "type": "Steel"
   },
   {
     "dex": "54",
@@ -173,6 +215,13 @@
     "cost": 4,
     "image": "growlithe",
     "type": "Fire"
+  },
+  {
+    "dex": "58-regional-h",
+    "name": "Caninos de Hisui",
+    "cost": 4,
+    "image": "growlithe-hisui",
+    "type": "Rock"
   },
   {
     "dex": "60",
@@ -217,6 +266,13 @@
     "type": "Rock"
   },
   {
+    "dex": "74-regional-a",
+    "name": "Racaillou d'Alola",
+    "cost": 3,
+    "image": "geodude-alola",
+    "type": "Rock"
+  },
+  {
     "dex": "77",
     "name": "Ponyta",
     "cost": 3,
@@ -224,11 +280,25 @@
     "type": "Fire"
   },
   {
-    "dex": "80",
+    "dex": "77-regional-g",
+    "name": "Ponyta de Galar",
+    "cost": 3,
+    "image": "ponyta-galar",
+    "type": "Psychic"
+  },
+  {
+    "dex": "79",
     "name": "Ramoloss",
     "cost": 3,
     "image": "slowpoke",
     "type": "Water"
+  },
+  {
+    "dex": "79-regional-g",
+    "name": "Ramoloss de Galar",
+    "cost": 3,
+    "image": "slowpoke-galar",
+    "type": "Psychic"
   },
   {
     "dex": "81",
@@ -243,6 +313,13 @@
     "cost": 4,
     "image": "farfetchd",
     "type": "Normal"
+  },
+  {
+    "dex": "83-regional-g",
+    "name": "Canarticho de Galar",
+    "cost": 5,
+    "image": "farfetchd-galar",
+    "type": "Fighting"
   },
   {
     "dex": "84",
@@ -263,6 +340,13 @@
     "name": "Tadmorv",
     "cost": 3,
     "image": "grimer",
+    "type": "Poison"
+  },
+  {
+    "dex": "88-regional-a",
+    "name": "Tadmorv d'Alola",
+    "cost": 3,
+    "image": "grimer-alola",
     "type": "Poison"
   },
   {
@@ -305,6 +389,13 @@
     "name": "Voltorbe",
     "cost": 2,
     "image": "voltorb",
+    "type": "Electric"
+  },
+  {
+    "dex": "100-regional-h",
+    "name": "Voltorbe de Hihui",
+    "cost": 3,
+    "image": "voltorb-hisui",
     "type": "Electric"
   },
   {
@@ -368,7 +459,7 @@
     "name": "Saquedeneu",
     "cost": 3,
     "image": "tangela",
-    "type": "grass"
+    "type": "Grass"
   },
   {
     "dex": "115",
@@ -404,6 +495,13 @@
     "cost": 4,
     "image": "mr-mime",
     "type": "Psychic"
+  },
+  {
+    "dex": "122-regional-g",
+    "name": "M. Mime de Galar",
+    "cost": 4,
+    "image": "mr-mime-galar",
+    "type": "Ice"
   },
   {
     "dex": "123",
@@ -446,6 +544,13 @@
     "cost": 5,
     "image": "tauros",
     "type": "Normal"
+  },
+  {
+    "dex": "128-regional-p",
+    "name": "Tauros de Paldea",
+    "cost": 5,
+    "image": "tauros-paldea",
+    "type": "Fighting"
   },
   {
     "dex": "129",
@@ -518,6 +623,13 @@
     "type": "Ice"
   },
   {
+    "dex": "144-regional-g",
+    "name": "Artikodin de Galar",
+    "cost": 6,
+    "image": "articuno-galar",
+    "type": "Psychic"
+  },
+  {
     "dex": "145",
     "name": "Electhor",
     "cost": 6,
@@ -525,11 +637,25 @@
     "type": "Electric"
   },
   {
+    "dex": "145-regional-g",
+    "name": "Electhor de Galar",
+    "cost": 6,
+    "image": "zapdos-galar",
+    "type": "Fighting"
+  },
+  {
     "dex": "146",
     "name": "Sulfura",
     "cost": 6,
     "image": "moltres",
     "type": "Fire"
+  },
+  {
+    "dex": "146-regional-g",
+    "name": "Sulfura de Galar",
+    "cost": 6,
+    "image": "moltres-galar",
+    "type": "Dark"
   },
   {
     "dex": "147",
@@ -700,6 +826,13 @@
     "type": "Water"
   },
   {
+    "dex": "194-regional-p",
+    "name": "Axoloto de Paldea",
+    "cost": 3,
+    "image": "wooper-paldea",
+    "type": "Ground"
+  },
+  {
     "dex": "198",
     "name": "Cornebre",
     "cost": 3,
@@ -770,6 +903,13 @@
     "type": "Water"
   },
   {
+    "dex": "211-regional-h",
+    "name": "Qwilfish de Hisui",
+    "cost": 4,
+    "image": "qwilfish-hisui",
+    "type": "Poison"
+  },
+  {
     "dex": "213",
     "name": "Caratroc",
     "cost": 4,
@@ -789,6 +929,13 @@
     "cost": 4,
     "image": "sneasel",
     "type": "Dark"
+  },
+  {
+    "dex": "215-regional-h",
+    "name": "Farfuret de Hisui",
+    "cost": 4,
+    "image": "sneasel-hisui",
+    "type": "Ice"
   },
   {
     "dex": "216",
@@ -817,6 +964,13 @@
     "cost": 3,
     "image": "corsola",
     "type": "Water"
+  },
+  {
+    "dex": "222-regional-g",
+    "name": "Corayon de Galar",
+    "cost": 4,
+    "image": "corsola-galar",
+    "type": "Ghost"
   },
   {
     "dex": "223",
@@ -992,6 +1146,13 @@
     "cost": 2,
     "image": "zigzagoon",
     "type": "Normal"
+  },
+  {
+    "dex": "263-regional-g",
+    "name": "Zigzaton de Galar",
+    "cost": 3,
+    "image": "zigzagoon-galar",
+    "type": "Dark"
   },
   {
     "dex": "265",
@@ -2079,6 +2240,13 @@
     "type": "Fire"
   },
   {
+    "dex": "554-regional-g",
+    "name": "Darumarond de Galar",
+    "cost": 4,
+    "image": "darumaka-galar",
+    "type": "Ice"
+  },
+  {
     "dex": "556",
     "name": "Maracachi",
     "cost": 4,
@@ -2114,6 +2282,13 @@
     "type": "Ghost"
   },
   {
+    "dex": "562-regional-g",
+    "name": "Tutafeh de Galar",
+    "cost": 3,
+    "image": "yamask-galar",
+    "type": "Ground"
+  },
+  {
     "dex": "564",
     "name": "Carapagos",
     "cost": 4,
@@ -2139,6 +2314,13 @@
     "name": "Zorua",
     "cost": 3,
     "image": "zorua",
+    "type": "Dark"
+  },
+  {
+    "dex": "570-regional-h",
+    "name": "Zorua de Hisui",
+    "cost": 4,
+    "image": "zorua-hisui",
     "type": "Dark"
   },
   {
@@ -2294,6 +2476,13 @@
     "cost": 4,
     "image": "stunfisk",
     "type": "Electric"
+  },
+  {
+    "dex": "618-regional-g",
+    "name": "Limonde de Galar",
+    "cost": 4,
+    "image": "stunfisk-galar",
+    "type": "Ground"
   },
   {
     "dex": "619",
@@ -2721,5 +2910,1236 @@
     "cost": 7,
     "image": "volcanion",
     "type": "Fire"
+  },
+  {
+    "dex": "722",
+    "name": "Brindibou",
+    "cost": 3,
+    "image": "rowlet",
+    "type": "Grass"
+  },
+  {
+    "dex": "725",
+    "name": "Flamiaou",
+    "cost": 3,
+    "image": "litten",
+    "type": "Fire"
+  },
+  {
+    "dex": "728",
+    "name": "Otaquin",
+    "cost": 3,
+    "image": "popplio",
+    "type": "Water"
+  },
+  {
+    "dex": "731",
+    "name": "Picassaut",
+    "cost": 3,
+    "image": "pikipek",
+    "type": "Normal"
+  },
+  {
+    "dex": "734",
+    "name": "Manglouton",
+    "cost": 2,
+    "image": "yungoos",
+    "type": "Normal"
+  },
+  {
+    "dex": "736",
+    "name": "Larvibule",
+    "cost": 2,
+    "image": "grubbin",
+    "type": "Bug"
+  },
+  {
+    "dex": "739",
+    "name": "Crabagarre",
+    "cost": 4,
+    "image": "crabrawler",
+    "type": "Fighting"
+  },
+  {
+    "dex": "741-baile",
+    "name": "Plumeline",
+    "cost": 3,
+    "image": "oricorio-baile",
+    "type": "Fire"
+  },
+  {
+    "dex": "742",
+    "name": "Bombydou",
+    "cost": 3,
+    "image": "cutiefly",
+    "type": "Bug"
+  },
+  {
+    "dex": "744",
+    "name": "Rocabot",
+    "cost": 3,
+    "image": "rockruff",
+    "type": "Rock"
+  },
+  {
+    "dex": "746",
+    "name": "Foussardine",
+    "cost": 3,
+    "image": "wishiwashi-solo",
+    "type": "Water"
+  },
+  {
+    "dex": "747",
+    "name": "Vorastérie",
+    "cost": 3,
+    "image": "mareanie",
+    "type": "Poison"
+  },
+  {
+    "dex": "749",
+    "name": "Tiboudet",
+    "cost": 3,
+    "image": "mudbray",
+    "type": "Ground"
+  },
+  {
+    "dex": "751",
+    "name": "Araqua",
+    "cost": 3,
+    "image": "dewpider",
+    "type": "Water"
+  },
+  {
+    "dex": "753",
+    "name": "Mimantis",
+    "cost": 3,
+    "image": "fomantis",
+    "type": "Grass"
+  },
+  {
+    "dex": "755",
+    "name": "Spododo",
+    "cost": 3,
+    "image": "morelull",
+    "type": "Grass"
+  },
+  {
+    "dex": "757",
+    "name": "Tritox",
+    "cost": 3,
+    "image": "salandit",
+    "type": "Poison"
+  },
+  {
+    "dex": "759",
+    "name": "Nounourson",
+    "cost": 3,
+    "image": "stufful",
+    "type": "Normal"
+  },
+  {
+    "dex": "761",
+    "name": "Croquine",
+    "cost": 3,
+    "image": "bounsweet",
+    "type": "Grass"
+  },
+  {
+    "dex": "764",
+    "name": "Guérilande",
+    "cost": 4,
+    "image": "comfey",
+    "type": "Fairy"
+  },
+  {
+    "dex": "765",
+    "name": "Gouroutan",
+    "cost": 5,
+    "image": "oranguru",
+    "type": "Normal"
+  },
+  {
+    "dex": "766",
+    "name": "Quartermac",
+    "cost": 5,
+    "image": "passimian",
+    "type": "Fighting"
+  },
+  {
+    "dex": "767",
+    "name": "Sovkipou",
+    "cost": 3,
+    "image": "wimpod",
+    "type": "Bug"
+  },
+  {
+    "dex": "769",
+    "name": "Bacabouh",
+    "cost": 3,
+    "image": "sandygast",
+    "type": "Ghost"
+  },
+  {
+    "dex": "771",
+    "name": "Comcombaffe",
+    "cost": 3,
+    "image": "pyukumuku",
+    "type": "Water"
+  },
+  {
+    "dex": "772",
+    "name": "Type:0",
+    "cost": 6,
+    "image": "type-null",
+    "type": "Normal"
+  },
+  {
+    "dex": "774-meteor",
+    "name": "Météno",
+    "cost": 5,
+    "image": "minior-meteor",
+    "type": "Rock"
+  },
+  {
+    "dex": "775",
+    "name": "Dodoala",
+    "cost": 5,
+    "image": "komala",
+    "type": "Normal"
+  },
+  {
+    "dex": "776",
+    "name": "Boumata",
+    "cost": 5,
+    "image": "turtonator",
+    "type": "Fire"
+  },
+  {
+    "dex": "777",
+    "name": "Togedemaru",
+    "cost": 4,
+    "image": "togedemaru",
+    "type": "Electric"
+  },
+  {
+    "dex": "778",
+    "name": "Mimiqui",
+    "cost": 5,
+    "image": "mimikyu",
+    "type": "Ghost"
+  },
+  {
+    "dex": "779",
+    "name": "Denticrisse",
+    "cost": 5,
+    "image": "bruxish",
+    "type": "Water"
+  },
+  {
+    "dex": "780",
+    "name": "Draïeul",
+    "cost": 5,
+    "image": "drampa",
+    "type": "Normal"
+  },
+  {
+    "dex": "781",
+    "name": "Sinistrail",
+    "cost": 5,
+    "image": "dhelmise",
+    "type": "Ghost"
+  },
+  {
+    "dex": "782",
+    "name": "Bébécaille",
+    "cost": 4,
+    "image": "jangmo-o",
+    "type": "Dragon"
+  },
+  {
+    "dex": "785",
+    "name": "Tokorico",
+    "cost": 6,
+    "image": "tapu-koko",
+    "type": "Electric"
+  },
+  {
+    "dex": "786",
+    "name": "Tokopiyon",
+    "cost": 6,
+    "image": "tapu-lele",
+    "type": "Psychic"
+  },
+  {
+    "dex": "787",
+    "name": "Tokotoro",
+    "cost": 6,
+    "image": "tapu-bulu",
+    "type": "Grass"
+  },
+  {
+    "dex": "788",
+    "name": "Tokopisco",
+    "cost": 6,
+    "image": "tapu-fini",
+    "type": "Water"
+  },
+  {
+    "dex": "789",
+    "name": "Cosmog",
+    "cost": 7,
+    "image": "cosmog",
+    "type": "Psychic"
+  },
+  {
+    "dex": "793",
+    "name": "Zéroïd",
+    "cost": 7,
+    "image": "nihilego",
+    "type": "Rock"
+  },
+  {
+    "dex": "794",
+    "name": "Mouscoto",
+    "cost": 7,
+    "image": "buzzwole",
+    "type": "Bug"
+  },
+  {
+    "dex": "795",
+    "name": "Cancrelove",
+    "cost": 7,
+    "image": "pheromosa",
+    "type": "Bug"
+  },
+  {
+    "dex": "796",
+    "name": "Câblifère",
+    "cost": 7,
+    "image": "xurkitree",
+    "type": "Electric"
+  },
+  {
+    "dex": "797",
+    "name": "Bamboiselle",
+    "cost": 7,
+    "image": "celesteela",
+    "type": "Steel"
+  },
+  {
+    "dex": "798",
+    "name": "Katagami",
+    "cost": 7,
+    "image": "kartana",
+    "type": "Steel"
+  },
+  {
+    "dex": "799",
+    "name": "Engloutyran",
+    "cost": 7,
+    "image": "guzzlord",
+    "type": "Dark"
+  },
+  {
+    "dex": "800",
+    "name": "Necrozma",
+    "cost": 8,
+    "image": "necrozma",
+    "type": "Psychic"
+  },
+  {
+    "dex": "801",
+    "name": "Magearna",
+    "cost": 7,
+    "image": "magearna",
+    "type": "Steel"
+  },
+  {
+    "dex": "802",
+    "name": "Marshadow",
+    "cost": 7,
+    "image": "marshadow",
+    "type": "Fighting"
+  },
+  {
+    "dex": "803",
+    "name": "Vémini",
+    "cost": 3,
+    "image": "poipole",
+    "type": "Poison"
+  },
+  {
+    "dex": "805",
+    "name": "Ama-Ama",
+    "cost": 7,
+    "image": "stakataka",
+    "type": "Rock"
+  },
+  {
+    "dex": "806",
+    "name": "Pierroteknik",
+    "cost": 7,
+    "image": "blacephalon",
+    "type": "Fire"
+  },
+  {
+    "dex": "807",
+    "name": "Zeraora",
+    "cost": 7,
+    "image": "zeraora",
+    "type": "Electric"
+  },
+  {
+    "dex": "808",
+    "name": "Meltan",
+    "cost": 6,
+    "image": "meltan",
+    "type": "Steel"
+  },
+  {
+    "dex": "810",
+    "name": "Ouistempo",
+    "cost": 3,
+    "image": "grookey",
+    "type": "Grass"
+  },
+  {
+    "dex": "813",
+    "name": "Flambino",
+    "cost": 3,
+    "image": "scorbunny",
+    "type": "Fire"
+  },
+  {
+    "dex": "816",
+    "name": "Larméléon",
+    "cost": 3,
+    "image": "sobble",
+    "type": "Water"
+  },
+  {
+    "dex": "819",
+    "name": "Rongourmand",
+    "cost": 2,
+    "image": "skwovet",
+    "type": "Normal"
+  },
+  {
+    "dex": "821",
+    "name": "Minisange",
+    "cost": 4,
+    "image": "rookidee",
+    "type": "Flying"
+  },
+  {
+    "dex": "824",
+    "name": "Larvadar",
+    "cost": 2,
+    "image": "blipbug",
+    "type": "Bug"
+  },
+  {
+    "dex": "827",
+    "name": "Goupilou",
+    "cost": 3,
+    "image": "Nickit",
+    "type": "Dark"
+  },
+  {
+    "dex": "829",
+    "name": "Tournicoton",
+    "cost": 3,
+    "image": "gossifleur",
+    "type": "Grass"
+  },
+  {
+    "dex": "831",
+    "name": "Moumouton",
+    "cost": 3,
+    "image": "wooloo",
+    "type": "Normal"
+  },
+  {
+    "dex": "833",
+    "name": "Khélocrok",
+    "cost": 3,
+    "image": "chewtle",
+    "type": "Water"
+  },
+  {
+    "dex": "835",
+    "name": "Voltoutou",
+    "cost": 3,
+    "image": "yamper",
+    "type": "Electric"
+  },
+  {
+    "dex": "837",
+    "name": "Charbi",
+    "cost": 3,
+    "image": "rolycoly",
+    "type": "Rock"
+  },
+  {
+    "dex": "840",
+    "name": "Verpom",
+    "cost": 4,
+    "image": "applin",
+    "type": "Grass"
+  },
+  {
+    "dex": "843",
+    "name": "Dunaja",
+    "cost": 3,
+    "image": "silicobra",
+    "type": "Ground"
+  },
+  {
+    "dex": "845",
+    "name": "Nigosier",
+    "cost": 3,
+    "image": "cramorant",
+    "type": "Flying"
+  },
+  {
+    "dex": "846",
+    "name": "Embrochet",
+    "cost": 3,
+    "image": "arrokuda",
+    "type": "Water"
+  },
+  {
+    "dex": "848",
+    "name": "Toxizap",
+    "cost": 3,
+    "image": "toxel",
+    "type": "Electric"
+  },
+  {
+    "dex": "850",
+    "name": "Grillepattes",
+    "cost": 3,
+    "image": "sizzlipede",
+    "type": "Fire"
+  },
+  {
+    "dex": "852",
+    "name": "Poulpaf",
+    "cost": 3,
+    "image": "clobbopus",
+    "type": "Fighting"
+  },
+  {
+    "dex": "854",
+    "name": "Théffroi",
+    "cost": 3,
+    "image": "sinistea",
+    "type": "Ghost"
+  },
+  {
+    "dex": "856",
+    "name": "Bibichut",
+    "cost": 4,
+    "image": "hatenna",
+    "type": "Psychic"
+  },
+  {
+    "dex": "859",
+    "name": "Grimalin",
+    "cost": 3,
+    "image": "impidimp",
+    "type": "Dark"
+  },
+  {
+    "dex": "868",
+    "name": "Crèmy",
+    "cost": 3,
+    "image": "milcery",
+    "type": "Fairy"
+  },
+  {
+    "dex": "870",
+    "name": "Hexadron",
+    "cost": 4,
+    "image": "falinks",
+    "type": "Fighting"
+  },
+  {
+    "dex": "871",
+    "name": "Wattapik",
+    "cost": 3,
+    "image": "pincurchin",
+    "type": "Electric"
+  },
+  {
+    "dex": "872",
+    "name": "Frissonille",
+    "cost": 3,
+    "image": "snom",
+    "type": "Ice"
+  },
+  {
+    "dex": "874",
+    "name": "Dolman",
+    "cost": 4,
+    "image": "stonjourner",
+    "type": "Rock"
+  },
+  {
+    "dex": "875-ice",
+    "name": "Bekaglaçon",
+    "cost": 4,
+    "image": "eiscue-ice",
+    "type": "Ice"
+  },
+  {
+    "dex": "876-female",
+    "name": "Wimessir",
+    "cost": 3,
+    "image": "indeedee",
+    "type": "Psychic"
+  },
+  {
+    "dex": "877",
+    "name": "Morpeko",
+    "cost": 3,
+    "image": "morpeko",
+    "type": "Electric"
+  },
+  {
+    "dex": "878",
+    "name": "Charibari",
+    "cost": 4,
+    "image": "cufant",
+    "type": "Steel"
+  },
+  {
+    "dex": "880",
+    "name": "Galvagon",
+    "cost": 5,
+    "image": "dracozolt",
+    "type": "Electric"
+  },
+  {
+    "dex": "881",
+    "name": "Galvagla",
+    "cost": 5,
+    "image": "arctozolt",
+    "type": "Electric"
+  },
+  {
+    "dex": "882",
+    "name": "Hydragon",
+    "cost": 5,
+    "image": "dracovish",
+    "type": "Water"
+  },
+  {
+    "dex": "883",
+    "name": "Hydragla",
+    "cost": 5,
+    "image": "arctovish",
+    "type": "Water"
+  },
+  {
+    "dex": "884",
+    "name": "Duralugon",
+    "cost": 5,
+    "image": "duraludon",
+    "type": "Steel"
+  },
+  {
+    "dex": "885",
+    "name": "Fantyrm",
+    "cost": 4,
+    "image": "dreepy",
+    "type": "Dragon"
+  },
+  {
+    "dex": "888",
+    "name": "Zacian",
+    "cost": 8,
+    "image": "zacian-hero",
+    "type": "Fairy"
+  },
+  {
+    "dex": "889",
+    "name": "Zamazenta",
+    "cost": 8,
+    "image": "zamazenta-hero",
+    "type": "Fighting"
+  },
+  {
+    "dex": "890",
+    "name": "Éthernatos",
+    "cost": 10,
+    "image": "eternatus",
+    "type": "Poison"
+  },
+  {
+    "dex": "891",
+    "name": "Wushours",
+    "cost": 7,
+    "image": "kubfu",
+    "type": "Fighting"
+  },
+  {
+    "dex": "893",
+    "name": "Zarude",
+    "cost": 7,
+    "image": "zarude",
+    "type": "Dark"
+  },
+  {
+    "dex": "894",
+    "name": "Regieleki",
+    "cost": 6,
+    "image": "regieleki",
+    "type": "Electric"
+  },
+  {
+    "dex": "895",
+    "name": "Regidrago",
+    "cost": 6,
+    "image": "regidrago",
+    "type": "Dragon"
+  },
+  {
+    "dex": "896",
+    "name": "Blizzeval",
+    "cost": 7,
+    "image": "glastrier",
+    "type": "Ice"
+  },
+  {
+    "dex": "897",
+    "name": "Spectreval",
+    "cost": 7,
+    "image": "spectrier",
+    "type": "Ghost"
+  },
+  {
+    "dex": "898",
+    "name": "Sylveroy",
+    "cost": 8,
+    "image": "calyrex",
+    "type": "Psychic"
+  },
+  {
+    "dex": "901-bloodmoon",
+    "name": "Bloodmoon Ursaking",
+    "cost": 7,
+    "image": "ursaking-bloodmoon",
+    "type": "Dark"
+  },
+  {
+    "dex": "905-incarnate",
+    "name": "Amovénus",
+    "cost": 7,
+    "image": "enamorus-incarnate",
+    "type": "Grass"
+  },
+  {
+    "dex": "906",
+    "name": "Poussacha",
+    "cost": 3,
+    "image": "sprigatito",
+    "type": "Grass"
+  },
+  {
+    "dex": "909",
+    "name": "Chochodile",
+    "cost": 3,
+    "image": "fuecoco",
+    "type": "Fire"
+  },
+  {
+    "dex": "912",
+    "name": "Coiffeton",
+    "cost": 3,
+    "image": "quaxly",
+    "type": "Water"
+  },
+  {
+    "dex": "915",
+    "name": "Gourmelet",
+    "cost": 2,
+    "image": "lechonk",
+    "type": "Normal"
+  },
+  {
+    "dex": "917",
+    "name": "Tissenboule",
+    "cost": 1,
+    "image": "tarondula",
+    "type": "Bug"
+  },
+  {
+    "dex": "919",
+    "name": "Liliterelle",
+    "cost": 3,
+    "image": "nymble",
+    "type": "Bug"
+  },
+  {
+    "dex": "921",
+    "name": "Pohm",
+    "cost": 3,
+    "image": "pawmi",
+    "type": "Electric"
+  },
+  {
+    "dex": "924",
+    "name": "Compagnol",
+    "cost": 4,
+    "image": "tandemaus",
+    "type": "Normal"
+  },
+  {
+    "dex": "926",
+    "name": "Pâtachiot",
+    "cost": 3,
+    "image": "fidough",
+    "type": "Fairy"
+  },
+  {
+    "dex": "928",
+    "name": "Olivini",
+    "cost": 3,
+    "image": "smoliv",
+    "type": "Grass"
+  },
+  {
+    "dex": "931",
+    "name": "Tapatoès",
+    "cost": 3,
+    "image": "squawkabilly",
+    "type": "Normal"
+  },
+  {
+    "dex": "932",
+    "name": "Selutin",
+    "cost": 4,
+    "image": "nacli",
+    "type": "Rock"
+  },
+  {
+    "dex": "935",
+    "name": "Charbambin",
+    "cost": 4,
+    "image": "charcadet",
+    "type": "Fire"
+  },
+  {
+    "dex": "938",
+    "name": "Têtampoule",
+    "cost": 3,
+    "image": "tadbulb",
+    "type": "Electric"
+  },
+  {
+    "dex": "940",
+    "name": "Zapétrel",
+    "cost": 3,
+    "image": "Wattrel",
+    "type": "Electric"
+  },
+  {
+    "dex": "942",
+    "name": "Grondogue",
+    "cost": 3,
+    "image": "maschiff",
+    "type": "Dark"
+  },
+  {
+    "dex": "944",
+    "name": "Gribouraigne",
+    "cost": 3,
+    "image": "shroodle",
+    "type": "Poison"
+  },
+  {
+    "dex": "946",
+    "name": "Virovent",
+    "cost": 3,
+    "image": "bramblin",
+    "type": "Grass"
+  },
+  {
+    "dex": "948",
+    "name": "Terracool",
+    "cost": 3,
+    "image": "toedscool",
+    "type": "Ground"
+  },
+  {
+    "dex": "950",
+    "name": "Craparoi",
+    "cost": 4,
+    "image": "klawf",
+    "type": "Rock"
+  },
+  {
+    "dex": "951",
+    "name": "Pimito",
+    "cost": 3,
+    "image": "capsakid",
+    "type": "Grass"
+  },
+  {
+    "dex": "953",
+    "name": "Léboulérou",
+    "cost": 3,
+    "image": "rellor",
+    "type": "Bug"
+  },
+  {
+    "dex": "955",
+    "name": "Flotillon",
+    "cost": 3,
+    "image": "flittle",
+    "type": "Psychic"
+  },
+  {
+    "dex": "957",
+    "name": "Forgerette",
+    "cost": 4,
+    "image": "tinkatink",
+    "type": "Fairy"
+  },
+  {
+    "dex": "960",
+    "name": "Taupikeau",
+    "cost": 3,
+    "image": "wiglett",
+    "type": "Water"
+  },
+  {
+    "dex": "962",
+    "name": "Lestombaile",
+    "cost": 3,
+    "image": "bombirdier",
+    "type": "Flying"
+  },
+  {
+    "dex": "963",
+    "name": "Dofin",
+    "cost": 4,
+    "image": "finizen",
+    "type": "Water"
+  },
+  {
+    "dex": "965",
+    "name": "Vrombi",
+    "cost": 4,
+    "image": "varoom",
+    "type": "Steel"
+  },
+  {
+    "dex": "967",
+    "name": "Motorizard",
+    "cost": 5,
+    "image": "cyclizar",
+    "type": "Dragon"
+  },
+  {
+    "dex": "968",
+    "name": "Ferdeter",
+    "cost": 4,
+    "image": "orthworm",
+    "type": "Steel"
+  },
+  {
+    "dex": "969",
+    "name": "Germéclat",
+    "cost": 4,
+    "image": "glimmet",
+    "type": "Rock"
+  },
+  {
+    "dex": "971",
+    "name": "Toutombe",
+    "cost": 4,
+    "image": "greavard",
+    "type": "Ghost"
+  },
+  {
+    "dex": "973",
+    "name": "Flamenroule",
+    "cost": 4,
+    "image": "flamigo",
+    "type": "Flying"
+  },
+  {
+    "dex": "974",
+    "name": "Piétacé",
+    "cost": 4,
+    "image": "cetoddle",
+    "type": "Ice"
+  },
+  {
+    "dex": "976",
+    "name": "Délestin",
+    "cost": 4,
+    "image": "veluza",
+    "type": "Water"
+  },
+  {
+    "dex": "977",
+    "name": "Oyacata",
+    "cost": 5,
+    "image": "dondozo",
+    "type": "Water"
+  },
+  {
+    "dex": "978",
+    "name": "Nigirigon",
+    "cost": 5,
+    "image": "tatsugiri",
+    "type": "Dragon"
+  },
+  {
+    "dex": "984",
+    "name": "Fort-Ivoire",
+    "cost": 6,
+    "image": "great-tusk",
+    "type": "Ground"
+  },
+  {
+    "dex": "985",
+    "name": "Hurle-Queue",
+    "cost": 6,
+    "image": "scream-tail",
+    "type": "Fairy"
+  },
+  {
+    "dex": "986",
+    "name": "Fongus-Furie",
+    "cost": 6,
+    "image": "brute-bonnet",
+    "type": "Grass"
+  },
+  {
+    "dex": "987",
+    "name": "Flotte-Mèche",
+    "cost": 6,
+    "image": "flutter-mane",
+    "type": "Ghost"
+  },
+  {
+    "dex": "988",
+    "name": "Rampe-Ailes",
+    "cost": 6,
+    "image": "slither-wing",
+    "type": "Bug"
+  },
+  {
+    "dex": "989",
+    "name": "Pelage-Sablé",
+    "cost": 6,
+    "image": "sandy-shocks",
+    "type": "Electric"
+  },
+  {
+    "dex": "990",
+    "name": "Roue-de-Fer",
+    "cost": 6,
+    "image": "iron-treads",
+    "type": "Ground"
+  },
+  {
+    "dex": "991",
+    "name": "Hotte-de-Fer",
+    "cost": 6,
+    "image": "iron-bundle",
+    "type": "Ice"
+  },
+  {
+    "dex": "992",
+    "name": "Paume-de-Fer",
+    "cost": 6,
+    "image": "iron-hands",
+    "type": "Fighting"
+  },
+  {
+    "dex": "993",
+    "name": "Têtes-de-Fer",
+    "cost": 6,
+    "image": "iron-jugulis",
+    "type": "Dark"
+  },
+  {
+    "dex": "994",
+    "name": "Mite-de-Fer",
+    "cost": 6,
+    "image": "iron-moth",
+    "type": "Fire"
+  },
+  {
+    "dex": "995",
+    "name": "Épine-de-Fer",
+    "cost": 6,
+    "image": "iron-thorns",
+    "type": "Rock"
+  },
+  {
+    "dex": "996",
+    "name": "Frigodo",
+    "cost": 4,
+    "image": "frigibax"
+  },
+  {
+    "dex": "999",
+    "name": "Mordudor",
+    "cost": 5,
+    "image": "gimmighoul",
+    "type": "Ghost"
+  },
+  {
+    "dex": "1001",
+    "name": "Chongjian",
+    "cost": 7,
+    "image": "wo-chien",
+    "type": "Dark"
+  },
+  {
+    "dex": "1002",
+    "name": "Baojian",
+    "cost": 7,
+    "image": "chien-pao",
+    "type": "Dark"
+  },
+  {
+    "dex": "1003",
+    "name": "Dinglu",
+    "cost": 7,
+    "image": "ting-lu",
+    "type": "Dark"
+  },
+  {
+    "dex": "1004",
+    "name": "Yuyu",
+    "cost": 7,
+    "image": "chi-yu",
+    "type": "Dark"
+  },
+  {
+    "dex": "1005",
+    "name": "Rugit-Lune",
+    "cost": 6,
+    "image": "roaring-moon",
+    "type": "Dragon"
+  },
+  {
+    "dex": "1006",
+    "name": "Garde-de-Fer",
+    "cost": 6,
+    "image": "iron-valiant",
+    "type": "Fairy"
+  },
+  {
+    "dex": "1007",
+    "name": "Koraidon",
+    "cost": 8,
+    "image": "Koraidon",
+    "type": "Fight"
+  },
+  {
+    "dex": "1008",
+    "name": "Miraidon",
+    "cost": 8,
+    "image": "Miraidon",
+    "type": "Electric"
+  },
+  {
+    "dex": "1009",
+    "name": "Serpente-Eau",
+    "cost": 7,
+    "image": "walking-wake",
+    "type": "Water"
+  },
+  {
+    "dex": "1010",
+    "name": "Vert-de-Fer",
+    "cost": 7,
+    "image": "iron-leaves",
+    "type": "Grass"
+  },
+  {
+    "dex": "1012",
+    "name": "Poltchageist",
+    "cost": 4,
+    "image": "poltchageist",
+    "type": "Grass"
+  },
+  {
+    "dex": "1014",
+    "name": "Okidogi",
+    "cost": 7,
+    "image": "okidogi",
+    "type": "Poison"
+  },
+  {
+    "dex": "1015",
+    "name": "Munkidori",
+    "cost": 7,
+    "image": "munkidori",
+    "type": "Poison"
+  },
+  {
+    "dex": "1016",
+    "name": "Fezandipiti",
+    "cost": 7,
+    "image": "fezandipiti",
+    "type": "Poison"
+  },
+  {
+    "dex": "1017",
+    "name": "Ogerpon",
+    "cost": 8,
+    "image": "ogerpon",
+    "type": "Grass"
+  },
+  {
+    "dex": "1020",
+    "name": "Feu-Perçant",
+    "cost": 7,
+    "image": "gouging-fire",
+    "type": "Fire"
+  },
+  {
+    "dex": "1021",
+    "name": "Ire-Foudre",
+    "cost": 7,
+    "image": "raging-bolt",
+    "type": "Electric"
+  },
+  {
+    "dex": "1022",
+    "name": "Roc-de-Fer",
+    "cost": 7,
+    "image": "iron-boulder",
+    "type": "Rock"
+  },
+  {
+    "dex": "1023",
+    "name": "Chef-de-Fer",
+    "cost": 7,
+    "image": "iron-crown",
+    "type": "Steel"
+  },
+  {
+    "dex": "1024",
+    "name": "Terapagos",
+    "cost": 8,
+    "image": "terapagos",
+    "type": "Normal"
+  },
+  {
+    "dex": "1025",
+    "name": "Péchaminus",
+    "cost": 7,
+    "image": "pecharunt",
+    "type": "Poison"
   }
 ]

@@ -140,7 +140,7 @@ const Pokedex = () => {
               return (
                 <a
                   key={pokemon.dex}
-                  href={`https://www.smogon.com/dex/ss/pokemon/${pokemon.image}`}
+                  href={`https://www.smogon.com/dex/sv/pokemon/${pokemon.image}`}
                   target="blank"
                 >
                   <div className="card" style={{ "--color": color }}>
