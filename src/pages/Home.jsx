@@ -1,11 +1,14 @@
 // Home.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getAuth } from "firebase/auth";
 import PokemonTeam from "../components/PokemonTeam"; // Assurez-vous que le chemin est correct
 import "../assets/Home.css";
 import Header from "../components/Header";
 import pokemonData from "../data/pokemon.json"; // Ajoutez l'importation des données de Pokémon ici
 
 const Home = () => {
+  const [username, setUsername] = useState("");
+  const auth = getAuth();
   const [team, setTeam] = useState([]);
   const [maxCost, setMaxCost] = useState(10); // Nouvel état pour le coût maximum
 
@@ -38,9 +41,15 @@ const Home = () => {
     generateTeam(); // Génère une nouvelle équipe lorsque le bouton est cliqué
   };
 
+  useEffect(() => {
+    if (auth.currentUser) {
+      setUsername(auth.currentUser.displayName);
+    }
+  }, [auth.currentUser]);
+
   return (
     <div className="main">
-      <Header />
+      <Header username={username} />
       <div className="cost-filter">
         <p>Coût maximum de l'équipe:</p>
         <label>

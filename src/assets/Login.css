@@ -1,4 +1,4 @@
-.signup-page {
+.login-page {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,20 +7,20 @@
   flex-direction: column;
 }
 
-.signup-page_button {
+.login-page_button {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30%;
+  width: 40%;
   margin: 20px 0;
 }
 
-.signup-page_button img {
+.login-page_button img {
   width: 10%;
   margin-right: 5px;
 }
 
-.signup-page_content {
+.login-page_content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,17 +34,17 @@
   flex-direction: column;
 }
 
-.signup-page_h2 {
+.login-page_h2 {
   font-family: "Carter One", system-ui;
   text-align: center;
   margin-bottom: 20px;
 }
 
-.signup-page_separator {
+.login-page_separator {
   width: 70%;
 }
 
-.signup-page_separator::after {
+.login-page_separator::after {
   content: "";
   display: block;
   border: 1px solid #1f1f1f;
