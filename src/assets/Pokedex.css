@@ -72,9 +72,16 @@ section h2 {
 }
 
 @media screen and (max-width: 480px) {
+  .pokedex {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   .pokedex a {
     display: flex;
     margin-bottom: 20px !important;
+    width: 90%;
   }
 
   .nav-generation {

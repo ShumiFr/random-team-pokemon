@@ -21,6 +21,16 @@ const Header = () => {
               Pokédex
             </Link>
           </li>
+          <li>
+            <Link to="/login" className={isActive("/login") ? "active" : ""}>
+              Login
+            </Link>
+          </li>
+          <li>
+            <Link to="/signup" className={isActive("/signup") ? "active" : ""}>
+              Signup
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
