@@ -135,6 +135,14 @@ const Pokedex = () => {
   return (
     <div>
       <Header username={username} />
+      <div className="pokedex-description">
+        <p>
+          Bienvenue {username} dans le pokédex ! Vous pouvez naviguer entre les générations avec les
+          différents bouton ci-dessous. Vous pouvez également changer le coût de vos pokémons si
+          vous êtes connecté !
+        </p>
+        <p>Cliquez sur les cartes pour être redirigé vers la page Smogon.</p>
+      </div>
       <div className="nav-generation">
         <a href="#1">Génération 1</a>
         <a href="#2">Génération 2</a>
