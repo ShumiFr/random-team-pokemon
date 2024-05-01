@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDdCunQSqBeaJ3cdrZ4F2gZabGDTWBMFYc",
@@ -14,4 +14,17 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+const auth = getAuth();
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // L'utilisateur est connecté.
+    console.log("Utilisateur connecté: ", user);
+    // Vous pouvez maintenant définir l'utilisateur dans l'état de votre application ou dans le stockage local pour le maintenir connecté.
+  } else {
+    // L'utilisateur est déconnecté.
+    console.log("Utilisateur déconnecté");
+    // Vous pouvez maintenant effacer l'utilisateur de l'état de votre application ou du stockage local.
+  }
+});

@@ -1,0 +1,74 @@
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.signup-page_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin: 0;
+}
+
+.signup-page_button img {
+  width: 10%;
+}
+
+header h1 {
+  margin-left: 32px;
+}
+
+.signup-page_content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #f1f1f1;
+  box-shadow: #000000 0px 0px 10px;
+  border-radius: 20px;
+  padding: 20px;
+  width: 40% !important;
+  margin-top: 50px;
+  flex-direction: column;
+}
+
+.signup-page_h2 {
+  font-family: "Carter One", system-ui;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.signup-page_separator {
+  width: 70%;
+}
+
+.signup-page_separator::after {
+  content: "";
+  display: block;
+  border: 1px solid #1f1f1f;
+  width: 100%;
+  background: #1f1f1f;
+  margin: 20px 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.field_label {
+  font-family: "Carter One", system-ui;
+  margin-right: 10px;
+}
+
+.field_input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #1f1f1f;
+}
