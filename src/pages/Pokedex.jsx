@@ -138,8 +138,12 @@ const Pokedex = () => {
             {pokemons.map((pokemon, index) => {
               const color = getColorByType(pokemon.type);
               return (
-                <a href={`https://www.smogon.com/dex/ss/pokemon/${pokemon.image}`} target="blank">
-                  <div key={index} className="card" style={{ "--color": color }}>
+                <a
+                  key={pokemon.dex}
+                  href={`https://www.smogon.com/dex/ss/pokemon/${pokemon.image}`}
+                  target="blank"
+                >
+                  <div className="card" style={{ "--color": color }}>
                     <img
                       src={`https://assets.pokeos.com/pokemon/home/${pokemon.dex}.png`}
                       alt={pokemon.name}
