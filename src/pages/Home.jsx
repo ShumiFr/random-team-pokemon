@@ -6,7 +6,6 @@ import Header from "../components/Header";
 import pokemonData from "../data/pokemon.json"; // Ajoutez l'importation des données de Pokémon ici
 
 const Home = () => {
-  const [teamKey, setTeamKey] = useState(0);
   const [team, setTeam] = useState([]);
   const [maxCost, setMaxCost] = useState(10); // Nouvel état pour le coût maximum
 

@@ -1,6 +1,5 @@
 // PokemonTeam.jsx
-import React, { useEffect, useState } from "react";
-import pokemonData from "../data/pokemon.json"; // Remplacez par le chemin vers votre fichier JSON
+import React from "react";
 
 const PokemonTeam = ({ team }) => {
   const getColorByType = (type) => {
