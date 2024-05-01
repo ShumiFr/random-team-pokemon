@@ -29,6 +29,21 @@ html {
 .pokedex a {
   margin-top: 0;
 }
+.pokedex-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pokedex-description p {
+  font-family: "Carter One", system-ui;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  color: black;
+  width: 70%;
+}
 
 .nav-generation {
   display: flex;

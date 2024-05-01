@@ -1,5 +1,6 @@
 // Pokedex.jsx
 import React, { useState, useEffect } from "react";
+import { getAuth } from "firebase/auth";
 import pokemonData from "../data/pokemon.json"; // Remplacez par le chemin vers votre fichier JSON
 import Header from "../components/Header";
 import "../assets/Pokedex.css";
@@ -7,6 +8,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 const Pokedex = () => {
+  const [username, setUsername] = useState("");
+  const auth = getAuth();
+  const [showScroll, setShowScroll] = useState(false);
+
   const getColorByType = (type) => {
     switch (type) {
       case "Fire":
@@ -104,8 +109,6 @@ const Pokedex = () => {
     return acc;
   }, {});
 
-  const [showScroll, setShowScroll] = useState(false);
-
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -123,9 +126,23 @@ const Pokedex = () => {
     return () => window.removeEventListener("scroll", checkScrollTop);
   }, [showScroll]);
 
+  useEffect(() => {
+    if (auth.currentUser) {
+      setUsername(auth.currentUser.displayName);
+    }
+  }, [auth.currentUser]);
+
   return (
     <div>
-      <Header />
+      <Header username={username} />
+      <div className="pokedex-description">
+        <p>
+          Bienvenue {username} dans le pokédex ! Vous pouvez naviguer entre les générations avec les
+          différents bouton ci-dessous. Vous pouvez également changer le coût de vos pokémons si
+          vous êtes connecté !
+        </p>
+        <p>Cliquez sur les cartes pour être redirigé vers la page Smogon.</p>
+      </div>
       <div className="nav-generation">
         <a href="#1">Génération 1</a>
         <a href="#2">Génération 2</a>

@@ -1,11 +1,14 @@
 // Home.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { getAuth } from "firebase/auth";
 import PokemonTeam from "../components/PokemonTeam"; // Assurez-vous que le chemin est correct
 import "../assets/Home.css";
 import Header from "../components/Header";
 import pokemonData from "../data/pokemon.json"; // Ajoutez l'importation des données de Pokémon ici
 
 const Home = () => {
+  const [username, setUsername] = useState("");
+  const auth = getAuth();
   const [team, setTeam] = useState([]);
   const [maxCost, setMaxCost] = useState(10); // Nouvel état pour le coût maximum
 
@@ -38,11 +41,28 @@ const Home = () => {
     generateTeam(); // Génère une nouvelle équipe lorsque le bouton est cliqué
   };
 
+  useEffect(() => {
+    if (auth.currentUser) {
+      setUsername(auth.currentUser.displayName);
+    }
+  }, [auth.currentUser]);
+
   return (
     <div className="main">
-      <Header />
+      <Header username={username} />
+      <div className="description">
+        <p>
+          Bienvenue {username} ! Cliquez sur le bouton ci-dessous pour générer une équipe de Pokémon
+          aléatoire.
+        </p>
+        <p>
+          Vous avez le choix entre une équipe avec 10 ou 15 de coût maximum, en fonction de votre
+          préférence. Une fois l'équipe générée, vous pouvez cliquer sur les cartes pour être
+          redirigé vers leur page Smogon correspondante !
+        </p>
+      </div>
       <div className="cost-filter">
-        <p>Coût maximum de l'équipe:</p>
+        <p>Coût maximum de l'équipe :</p>
         <label>
           <input type="radio" value="10" checked={maxCost === 10} onChange={handleMaxCostChange} />
           <span>10</span>
@@ -54,7 +74,6 @@ const Home = () => {
       </div>
       <button onClick={handleClick}>Générer une nouvelle équipe</button>
       <PokemonTeam team={team} /> {/* Passez l'équipe en tant que prop */}
-      <p>Cliquez sur les cartes de pokémon pour trouver sa page stratégique</p>
     </div>
   );
 };
