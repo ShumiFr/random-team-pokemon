@@ -55,7 +55,20 @@ const Pokedex = () => {
     for (let i = 0; i < pokemonData.length; i++) {
       const pokemon = pokemonData[i];
       const dexNumber = pokemon.dex.split("-")[0];
-      if (dexNumber <= 151) {
+      const dexNumberRegional = pokemon.dex;
+      if (dexNumberRegional.includes("-regional-a")) {
+        pokemon.generation = 7;
+      } else if (
+        dexNumberRegional.includes("-regional-g") ||
+        dexNumberRegional.includes("-regional-h")
+      ) {
+        pokemon.generation = 8;
+      } else if (
+        dexNumberRegional.includes("-bloodmoon") ||
+        dexNumberRegional.includes("-regional-p")
+      ) {
+        pokemon.generation = 9;
+      } else if (dexNumber <= 151) {
         pokemon.generation = 1;
       } else if (dexNumber <= 251) {
         pokemon.generation = 2;

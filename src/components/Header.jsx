@@ -1,22 +1,25 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../assets/Header.css";
 
 const Header = () => {
+  const location = useLocation();
+  const isActive = (path) => location.pathname === path;
+
   return (
     <header>
       <h1>Equipe Pokérogue aléatoire</h1>
       <nav>
         <ul>
           <li>
-            <NavLink exact to="/" activeClassName="active">
+            <Link to="/" className={isActive("/") ? "active" : ""}>
               Accueil
-            </NavLink>
+            </Link>
           </li>
           <li>
-            <NavLink to="/pokedex" activeClassName="active">
+            <Link to="/pokedex" className={isActive("/pokedex") ? "active" : ""}>
               Pokédex
-            </NavLink>
+            </Link>
           </li>
         </ul>
       </nav>
