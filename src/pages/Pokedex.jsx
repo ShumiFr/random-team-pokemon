@@ -222,7 +222,6 @@ const Pokedex = () => {
                     style={{ "--color": color }}
                     key={pokemon.dex}
                   >
-                    isInCollection && (
                     {isInCollection && (
                       <div
                         className="remove-from-collection"
