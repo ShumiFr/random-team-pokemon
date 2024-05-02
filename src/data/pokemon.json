@@ -1064,28 +1064,28 @@
     "type": "Normal"
   },
   {
-    "dex": "242",
+    "dex": "243",
     "name": "Raikou",
     "cost": 6,
     "image": "raikou",
     "type": "Electric"
   },
   {
-    "dex": "243",
+    "dex": "244",
     "name": "Entei",
     "cost": 6,
     "image": "entei",
     "type": "Fire"
   },
   {
-    "dex": "244",
+    "dex": "245",
     "name": "Suicune",
     "cost": 6,
     "image": "suicune",
     "type": "Water"
   },
   {
-    "dex": "245",
+    "dex": "246",
     "name": "Embrylex",
     "cost": 4,
     "image": "larvitar",
