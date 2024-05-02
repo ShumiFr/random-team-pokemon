@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import pokemonData from "../data/pokemon.json";
 import Header from "../components/Header";
 import PokemonTeam from "../components/PokemonTeam";
@@ -8,31 +8,32 @@ const Home = () => {
   const [username, setUsername] = useState("");
   const auth = getAuth();
   const [team, setTeam] = useState([]);
-  const [userTeam, setUserTeam] = useState([]);
   const [maxCost, setMaxCost] = useState(10);
   const [userPokemon, setUserPokemon] = useState([]);
-  const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUserIsLoggedIn(true);
-        const storedPokemon = localStorage.getItem("userPokemons");
-        console.log(storedPokemon);
-        if (storedPokemon) {
-          const parsedPokemon = JSON.parse(storedPokemon);
-          setUserPokemon(parsedPokemon);
-        }
-      } else {
-        setUserIsLoggedIn(false);
-      }
-    });
-  }, [auth]);
+    if (auth.currentUser) {
+      setUsername(auth.currentUser.displayName);
+      console.log("User is logged in");
+    } else {
+      console.log("User is not logged in");
+    }
+  }, [auth.currentUser]);
+
+  useEffect(() => {
+    const storedPokemon = localStorage.getItem("userPokemons");
+    if (storedPokemon) {
+      const parsedPokemon = JSON.parse(storedPokemon);
+      setUserPokemon(parsedPokemon);
+    }
+  }, []);
+
+  console.log(userPokemon);
 
   const generateTeam = () => {
     let newTeam = [];
     let totalCost = 0;
-    const source = pokemonData;
+    const source = userIsLoggedIn ? userPokemon : pokemonData;
 
     while (totalCost < maxCost && newTeam.length < 6) {
       const randomIndex = Math.floor(Math.random() * source.length);
@@ -47,26 +48,8 @@ const Home = () => {
     setTeam(newTeam);
   };
 
-  const generateUserTeam = () => {
-    let newUserTeam = [];
-    let totalCost = 0;
-    const source = userPokemon;
-
-    while (totalCost < maxCost && newUserTeam.length < 6) {
-      const randomIndex = Math.floor(Math.random() * source.length);
-      const pokemon = source[randomIndex];
-
-      if (totalCost + pokemon.cost <= maxCost && !newUserTeam.includes(pokemon)) {
-        newUserTeam.push(pokemon);
-        totalCost += pokemon.cost;
-      }
-    }
-
-    setUserTeam(newUserTeam);
-  };
-
   const handleClick = () => {
-    if (userIsLoggedIn) {
+    if (auth.currentUser) {
       generateUserTeam();
     } else {
       generateTeam();
@@ -77,12 +60,6 @@ const Home = () => {
   const handleMaxCostChange = (event) => {
     setMaxCost(parseInt(event.target.value));
   };
-
-  useEffect(() => {
-    if (auth.currentUser) {
-      setUsername(auth.currentUser.displayName);
-    }
-  }, [auth.currentUser]);
 
   return (
     <div className="main">
@@ -110,7 +87,7 @@ const Home = () => {
         </label>
       </div>
       <button onClick={handleClick}>Générer une nouvelle équipe</button>
-      {userIsLoggedIn ? <PokemonTeam team={userTeam} /> : <PokemonTeam team={team} />}
+      <PokemonTeam team={auth.currentUser ? userTeam : team} />
     </div>
   );
 };
