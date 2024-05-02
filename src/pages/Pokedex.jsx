@@ -11,19 +11,14 @@ import { UserPokemonsContext } from "../contexts/UserPokemonsContext";
 import { Button, Modal, Form } from "react-bootstrap";
 
 const Pokedex = () => {
-  const [username, setUsername] = useState("");
   const auth = getAuth();
+  const [username, setUsername] = useState("");
   const [showScroll, setShowScroll] = useState(false);
-  const { userPokemons, setUserPokemons } = useContext(UserPokemonsContext);
   const [showModal, setShowModal] = useState(false);
+  const { addPokemon, removePokemon, userPokemons } = useContext(UserPokemonsContext);
 
   const handleShow = () => setShowModal(true);
   const handleListClose = () => setShowModal(false);
-
-  const handlePokemonSelect = (pokemon) => {
-    setUserPokemons([...userPokemons, pokemon]);
-    console.log("Pokémon ajouté à la collection :", pokemon);
-  };
 
   const getColorByType = (type) => {
     switch (type) {
@@ -145,11 +140,6 @@ const Pokedex = () => {
     }
   }, [auth.currentUser]);
 
-  useEffect(() => {
-    // Sauvegarder les pokémons de l'utilisateur dans le LocalStorage chaque fois qu'ils changent
-    localStorage.setItem(`${username}_pokemons`, JSON.stringify(userPokemons));
-  }, [username, userPokemons]);
-
   return (
     <div className="pokedex-page">
       <Header username={username} />
@@ -209,7 +199,7 @@ const Pokedex = () => {
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
-                          // Rajouter le removePokemon ici
+                          removePokemon(pokemon.dex);
                         }}
                       >
                         X
@@ -254,7 +244,7 @@ const Pokedex = () => {
                             alt={pokemon.name}
                           />
                         }
-                        onChange={() => handlePokemonSelect(pokemon)}
+                        onChange={() => addPokemon(pokemon)}
                       />
                     </div>
                   ))}

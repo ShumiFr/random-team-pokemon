@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 export const UserPokemonsContext = React.createContext();
 
 export const UserPokemonsProvider = ({ children }) => {
-  const [userPokemons, setState] = useState([]);
+  const [userPokemons, setUserPokemons] = useState([]);
 
   useEffect(() => {
     const savedUserPokemons = localStorage.getItem(`user_pokemons`);
@@ -12,18 +12,18 @@ export const UserPokemonsProvider = ({ children }) => {
     }
   }, []);
 
-  const setUserPokemons = (userPokemons) => {
-    localStorage.setItem(`user_pokemons`, JSON.stringify(userPokemons));
-    setState(userPokemons);
-  };
+  useEffect(() => {
+    if (userPokemons.length) {
+      localStorage.setItem(`user_pokemons`, JSON.stringify(userPokemons));
+    }
+  }, [userPokemons]);
 
   const addPokemon = (pokemon) => {
     setUserPokemons((prevPokemons) => [...prevPokemons, pokemon]);
   };
 
   function removePokemon(dex) {
-    const newUserPokemons = userPokemons.filter((pokemon) => pokemon.dex !== dex);
-    setUserPokemons(newUserPokemons);
+    setUserPokemons((prevPokemons) => prevPokemons.filter((pokemon) => pokemon.dex !== dex));
   }
 
   return (
