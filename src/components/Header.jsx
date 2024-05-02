@@ -32,22 +32,24 @@ const Header = ({ username }) => {
               Accueil
             </Link>
           </li>
-          <li>
-            <Link to="/pokedex" className={isActive("/pokedex") ? "active" : ""}>
-              Pokédex
-            </Link>
-          </li>
+          {username && (
+            <li>
+              <Link to="/pokedex" className={isActive("/pokedex") ? "active" : ""}>
+                Pokédex
+              </Link>
+            </li>
+          )}
           {!username && (
             <li>
               <Link to="/login" className={isActive("/login") ? "active" : ""}>
-                Login
+                Connexion
               </Link>
             </li>
           )}
           {!username && (
             <li>
               <Link to="/signup" className={isActive("/signup") ? "active" : ""}>
-                Signup
+                Inscription
               </Link>
             </li>
           )}
