@@ -1,16 +1,29 @@
 // Pokedex.jsx
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { getAuth } from "firebase/auth";
 import pokemonData from "../data/pokemon.json"; // Remplacez par le chemin vers votre fichier JSON
 import Header from "../components/Header";
 import "../assets/Pokedex.css";
+import "../assets/Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { UserPokemonContext } from "../contexts/UserPokemonContext";
+import { Button, Modal, Form } from "react-bootstrap";
 
 const Pokedex = () => {
   const [username, setUsername] = useState("");
   const auth = getAuth();
   const [showScroll, setShowScroll] = useState(false);
+  const { userPokemons, setUserPokemons } = useContext(UserPokemonContext);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShow = () => setShowModal(true);
+  const handleListClose = () => setShowModal(false);
+
+  const handlePokemonSelect = (pokemon) => {
+    setUserPokemons([...userPokemons, pokemon]);
+    console.log("Pokémon ajouté à la collection :", pokemon);
+  };
 
   const getColorByType = (type) => {
     switch (type) {
@@ -113,6 +126,17 @@ const Pokedex = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  function removeFromCollection(dex) {
+    // Filtrer le tableau userPokemons pour supprimer le Pokémon avec le dex donné
+    const newUserPokemons = userPokemons.filter((pokemon) => pokemon.dex !== dex);
+
+    // Mettre à jour le LocalStorage avec le nouveau tableau
+    localStorage.setItem("userPokemons", JSON.stringify(newUserPokemons));
+
+    // Mettre à jour l'état de userPokemons avec le nouveau tableau
+    setUserPokemons(newUserPokemons);
+  }
+
   useEffect(() => {
     const checkScrollTop = () => {
       if (!showScroll && window.scrollY > 400) {
@@ -132,8 +156,21 @@ const Pokedex = () => {
     }
   }, [auth.currentUser]);
 
+  useEffect(() => {
+    // Récupérer les pokémons de l'utilisateur du LocalStorage lors du chargement du composant
+    const savedUserPokemons = localStorage.getItem(`${username}_pokemons`);
+    if (savedUserPokemons) {
+      setUserPokemons(JSON.parse(savedUserPokemons));
+    }
+  }, [username, setUserPokemons]);
+
+  useEffect(() => {
+    // Sauvegarder les pokémons de l'utilisateur dans le LocalStorage chaque fois qu'ils changent
+    localStorage.setItem(`${username}_pokemons`, JSON.stringify(userPokemons));
+  }, [username, userPokemons]);
+
   return (
-    <div>
+    <div className="pokedex-page">
       <Header username={username} />
       <div className="pokedex-description">
         <p>
@@ -154,6 +191,9 @@ const Pokedex = () => {
         <a href="#8">Génération 8</a>
         <a href="#9">Génération 9</a>
       </div>
+      <Button variant="primary" onClick={handleShow}>
+        Compléter son pokédex
+      </Button>
       <button
         className="scrollTop"
         onClick={scrollTop}
@@ -161,19 +201,39 @@ const Pokedex = () => {
       >
         <FontAwesomeIcon icon={faArrowUp} />
       </button>
-      {Object.entries(pokemonByGeneration).map(([generation, pokemons]) => (
+      {Object.entries(pokemonByGeneration).map(([generation, pokemonData]) => (
         <section key={generation}>
           <h2 id={generation}>Génération {generation}</h2>
           <div className="pokedex">
-            {pokemons.map((pokemon, index) => {
+            {pokemonData.map((pokemon) => {
               const color = getColorByType(pokemon.type);
+              const isInCollection = userPokemons.some(
+                (userPokemon) => userPokemon.dex === pokemon.dex
+              );
               return (
                 <a
                   key={pokemon.dex}
                   href={`https://www.smogon.com/dex/sv/pokemon/${pokemon.image}`}
                   target="blank"
+                  className={`card-link ${isInCollection ? "" : "not-owned"}`}
                 >
-                  <div className="card" style={{ "--color": color }}>
+                  <div
+                    className={`card ${!isInCollection ? "not-in-collection" : ""}`}
+                    style={{ "--color": color }}
+                    key={pokemon.dex}
+                  >
+                    {isInCollection && (
+                      <div
+                        className="remove-from-collection"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          removeFromCollection(pokemon.dex); // Appeler removeFromCollection lorsque l'utilisateur clique sur la croix
+                        }}
+                      >
+                        X
+                      </div>
+                    )}
                     <img
                       src={`https://assets.pokeos.com/pokemon/home/${pokemon.dex}.png`}
                       alt={pokemon.name}
@@ -187,6 +247,46 @@ const Pokedex = () => {
           </div>
         </section>
       ))}
+      <Modal show={showModal} onHide={handleListClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Sélectionnez un Pokémon</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {Object.entries(pokemonByGeneration).map(([generation, pokemonData]) => (
+            <div className="modal-generation" key={generation}>
+              <h4>Génération {generation}</h4>
+              <div className="modal-gallery">
+                {pokemonData
+                  .filter(
+                    (pokemon) =>
+                      !userPokemons.some((userPokemon) => userPokemon.dex === pokemon.dex)
+                  )
+                  .map((pokemon) => (
+                    <div key={pokemon.dex} className="form-check-wrapper">
+                      <Form.Check
+                        type="checkbox"
+                        key={pokemon.dex}
+                        id={`pokemon-${pokemon.dex}`}
+                        label={
+                          <img
+                            src={`https://assets.pokeos.com/pokemon/home/${pokemon.dex}.png`}
+                            alt={pokemon.name}
+                          />
+                        }
+                        onChange={() => handlePokemonSelect(pokemon)}
+                      />
+                    </div>
+                  ))}
+              </div>
+            </div>
+          ))}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleListClose}>
+            Fermer
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

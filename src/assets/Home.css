@@ -237,4 +237,8 @@ h3 {
   .main p {
     text-align: center;
   }
+
+  .description {
+    width: 90%;
+  }
 }
