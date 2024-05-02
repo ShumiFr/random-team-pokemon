@@ -10,7 +10,7 @@ const Home = () => {
   const auth = getAuth();
   const [team, setTeam] = useState([]);
   const [maxCost, setMaxCost] = useState(10);
-  const { userPokemons, setUserPokemons } = useContext(UserPokemonsContext);
+  const { userPokemons } = useContext(UserPokemonsContext);
 
   useEffect(() => {
     if (auth.currentUser) {

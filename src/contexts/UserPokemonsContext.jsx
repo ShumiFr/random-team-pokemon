@@ -10,7 +10,7 @@ export const UserPokemonsProvider = ({ children }) => {
     if (savedUserPokemons) {
       setUserPokemons(JSON.parse(savedUserPokemons));
     }
-  }, [setUserPokemons]);
+  }, []);
 
   const setUserPokemons = (userPokemons) => {
     localStorage.setItem(`user_pokemons`, JSON.stringify(userPokemons));
