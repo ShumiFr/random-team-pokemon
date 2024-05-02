@@ -1,51 +1,61 @@
-// Home.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { getAuth } from "firebase/auth";
-import PokemonTeam from "../components/PokemonTeam"; // Assurez-vous que le chemin est correct
-import "../assets/Home.css";
+import pokemonData from "../data/pokemon.json";
 import Header from "../components/Header";
-import pokemonData from "../data/pokemon.json"; // Ajoutez l'importation des données de Pokémon ici
+import PokemonTeam from "../components/PokemonTeam";
+import { UserPokemonsContext } from "../contexts/UserPokemonsContext";
 
 const Home = () => {
   const [username, setUsername] = useState("");
   const auth = getAuth();
   const [team, setTeam] = useState([]);
-  const [maxCost, setMaxCost] = useState(10); // Nouvel état pour le coût maximum
+  const [maxCost, setMaxCost] = useState(10);
+  const { userPokemons } = useContext(UserPokemonsContext);
 
-  // Fonction pour générer une équipe de Pokémon dont le coût total est égal à maxCost et sans doublons
-  // Fonction pour générer une équipe de Pokémon dont le coût total est égal à maxCost et sans doublons
+  useEffect(() => {
+    if (auth.currentUser) {
+      setUsername(auth.currentUser.displayName);
+      console.log("User is logged in");
+    } else {
+      console.log("User is not logged in");
+    }
+  }, [auth.currentUser]);
+
+  console.log(userPokemons);
+
   const generateTeam = () => {
     let newTeam = [];
     let totalCost = 0;
+    const source = auth.currentUser && userPokemons.length > 1 ? userPokemons : pokemonData;
 
-    while (totalCost < maxCost && newTeam.length < 6) {
-      // Ajoutez une condition pour vérifier que l'équipe ne contient pas plus de 6 Pokémon
-      const randomIndex = Math.floor(Math.random() * pokemonData.length);
-      const pokemon = pokemonData[randomIndex];
+    let securityIndex = 0;
+    while (
+      totalCost < maxCost &&
+      newTeam.length < (source.length > 6 ? 6 : source.length) &&
+      securityIndex < 100
+    ) {
+      const randomIndex = Math.floor(Math.random() * source.length);
+      const pokemon = source[randomIndex];
 
       if (totalCost + pokemon.cost <= maxCost && !newTeam.includes(pokemon)) {
         newTeam.push(pokemon);
         totalCost += pokemon.cost;
       }
+
+      securityIndex++;
     }
 
     setTeam(newTeam);
+  };
+
+  const handleClick = () => {
+    generateTeam();
   };
 
   // Fonction pour gérer le changement de coût maximum
   const handleMaxCostChange = (event) => {
     setMaxCost(parseInt(event.target.value));
   };
-
-  const handleClick = () => {
-    generateTeam(); // Génère une nouvelle équipe lorsque le bouton est cliqué
-  };
-
-  useEffect(() => {
-    if (auth.currentUser) {
-      setUsername(auth.currentUser.displayName);
-    }
-  }, [auth.currentUser]);
 
   return (
     <div className="main">
@@ -73,7 +83,7 @@ const Home = () => {
         </label>
       </div>
       <button onClick={handleClick}>Générer une nouvelle équipe</button>
-      <PokemonTeam team={team} /> {/* Passez l'équipe en tant que prop */}
+      <PokemonTeam team={team} />
     </div>
   );
 };

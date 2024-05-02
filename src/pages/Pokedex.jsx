@@ -7,23 +7,18 @@ import "../assets/Pokedex.css";
 import "../assets/Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { UserPokemonContext } from "../contexts/UserPokemonContext";
+import { UserPokemonsContext } from "../contexts/UserPokemonsContext";
 import { Button, Modal, Form } from "react-bootstrap";
 
 const Pokedex = () => {
-  const [username, setUsername] = useState("");
   const auth = getAuth();
+  const [username, setUsername] = useState("");
   const [showScroll, setShowScroll] = useState(false);
-  const { userPokemons, setUserPokemons } = useContext(UserPokemonContext);
   const [showModal, setShowModal] = useState(false);
+  const { addPokemon, removePokemon, userPokemons } = useContext(UserPokemonsContext);
 
   const handleShow = () => setShowModal(true);
   const handleListClose = () => setShowModal(false);
-
-  const handlePokemonSelect = (pokemon) => {
-    setUserPokemons([...userPokemons, pokemon]);
-    console.log("Pokémon ajouté à la collection :", pokemon);
-  };
 
   const getColorByType = (type) => {
     switch (type) {
@@ -126,17 +121,6 @@ const Pokedex = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  function removeFromCollection(dex) {
-    // Filtrer le tableau userPokemons pour supprimer le Pokémon avec le dex donné
-    const newUserPokemons = userPokemons.filter((pokemon) => pokemon.dex !== dex);
-
-    // Mettre à jour le LocalStorage avec le nouveau tableau
-    localStorage.setItem("userPokemons", JSON.stringify(newUserPokemons));
-
-    // Mettre à jour l'état de userPokemons avec le nouveau tableau
-    setUserPokemons(newUserPokemons);
-  }
-
   useEffect(() => {
     const checkScrollTop = () => {
       if (!showScroll && window.scrollY > 400) {
@@ -155,19 +139,6 @@ const Pokedex = () => {
       setUsername(auth.currentUser.displayName);
     }
   }, [auth.currentUser]);
-
-  useEffect(() => {
-    // Récupérer les pokémons de l'utilisateur du LocalStorage lors du chargement du composant
-    const savedUserPokemons = localStorage.getItem(`${username}_pokemons`);
-    if (savedUserPokemons) {
-      setUserPokemons(JSON.parse(savedUserPokemons));
-    }
-  }, [username, setUserPokemons]);
-
-  useEffect(() => {
-    // Sauvegarder les pokémons de l'utilisateur dans le LocalStorage chaque fois qu'ils changent
-    localStorage.setItem(`${username}_pokemons`, JSON.stringify(userPokemons));
-  }, [username, userPokemons]);
 
   return (
     <div className="pokedex-page">
@@ -228,7 +199,7 @@ const Pokedex = () => {
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
-                          removeFromCollection(pokemon.dex); // Appeler removeFromCollection lorsque l'utilisateur clique sur la croix
+                          removePokemon(pokemon.dex);
                         }}
                       >
                         X
@@ -273,7 +244,7 @@ const Pokedex = () => {
                             alt={pokemon.name}
                           />
                         }
-                        onChange={() => handlePokemonSelect(pokemon)}
+                        onChange={() => addPokemon(pokemon)}
                       />
                     </div>
                   ))}
