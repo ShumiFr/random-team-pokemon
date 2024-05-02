@@ -33,9 +33,9 @@ const Home = () => {
   const generateTeam = () => {
     let newTeam = [];
     let totalCost = 0;
-    const source = userIsLoggedIn ? userPokemon : pokemonData;
+    const source = auth.currentUser ? userPokemon : pokemonData;
 
-    while (totalCost < maxCost && newTeam.length < 6) {
+    while (newTeam.length < (source.length > 6 ? 6 : source.length)) {
       const randomIndex = Math.floor(Math.random() * source.length);
       const pokemon = source[randomIndex];
 
@@ -49,11 +49,7 @@ const Home = () => {
   };
 
   const handleClick = () => {
-    if (auth.currentUser) {
-      generateUserTeam();
-    } else {
-      generateTeam();
-    }
+    generateTeam();
   };
 
   // Fonction pour gérer le changement de coût maximum
@@ -87,7 +83,7 @@ const Home = () => {
         </label>
       </div>
       <button onClick={handleClick}>Générer une nouvelle équipe</button>
-      <PokemonTeam team={auth.currentUser ? userTeam : team} />
+      <PokemonTeam team={team} />
     </div>
   );
 };
