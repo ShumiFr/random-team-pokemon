@@ -31,22 +31,29 @@ const Home = () => {
   console.log(userPokemon);
 
   const generateTeam = () => {
-    let newTeam = [];
-    let totalCost = 0;
-    const source = auth.currentUser ? userPokemon : pokemonData;
+		let newTeam = [];
+		let totalCost = 0;
+		const source = auth.currentUser && userPokemon.length > 1 ? userPokemon : pokemonData;
 
-    while (newTeam.length < (source.length > 6 ? 6 : source.length)) {
-      const randomIndex = Math.floor(Math.random() * source.length);
-      const pokemon = source[randomIndex];
+		let securityIndex = 0;
+		while (
+			totalCost < maxCost &&
+			newTeam.length < (source.length > 6 ? 6 : source.length) &&
+			securityIndex < 100
+		) {
+			const randomIndex = Math.floor(Math.random() * source.length);
+			const pokemon = source[randomIndex];
 
-      if (totalCost + pokemon.cost <= maxCost && !newTeam.includes(pokemon)) {
-        newTeam.push(pokemon);
-        totalCost += pokemon.cost;
-      }
-    }
+			if (totalCost + pokemon.cost <= maxCost && !newTeam.includes(pokemon)) {
+				newTeam.push(pokemon);
+				totalCost += pokemon.cost;
+			}
 
-    setTeam(newTeam);
-  };
+			securityIndex++;
+		}
+
+		setTeam(newTeam);
+	};
 
   const handleClick = () => {
     generateTeam();
