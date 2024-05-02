@@ -2086,11 +2086,11 @@
     "type": "Normal"
   },
   {
-    "dex": "507",
+    "dex": "509",
     "name": "Chacripan",
     "cost": 3,
-    "image": "lillipup",
-    "type": "Normal"
+    "image": "purrloin",
+    "type": "Dark"
   },
   {
     "dex": "511",
@@ -2104,14 +2104,14 @@
     "name": "Flamajou",
     "cost": 3,
     "image": "simisage",
-    "type": "Grass"
+    "type": "Fire"
   },
   {
     "dex": "515",
     "name": "Flotajou",
     "cost": 3,
     "image": "pansear",
-    "type": "Fire"
+    "type": "Water"
   },
   {
     "dex": "517",

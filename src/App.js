@@ -4,20 +4,20 @@ import Home from "./pages/Home";
 import Pokedex from "./pages/Pokedex";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import { UserPokemonProvider } from "./contexts/UserPokemonContext";
+import { UserPokemonsProvider } from "./contexts/UserPokemonsContext";
 
 const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <UserPokemonProvider>
+        <UserPokemonsProvider>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/pokedex" element={<Pokedex />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
           </Routes>
-        </UserPokemonProvider>
+        </UserPokemonsProvider>
       </BrowserRouter>
     </div>
   );

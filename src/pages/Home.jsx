@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { getAuth } from "firebase/auth";
 import pokemonData from "../data/pokemon.json";
 import Header from "../components/Header";
 import PokemonTeam from "../components/PokemonTeam";
+import { UserPokemonsContext } from "../contexts/UserPokemonsContext";
 
 const Home = () => {
   const [username, setUsername] = useState("");
   const auth = getAuth();
   const [team, setTeam] = useState([]);
   const [maxCost, setMaxCost] = useState(10);
-  const [userPokemon, setUserPokemon] = useState([]);
+  const { userPokemons, setUserPokemons } = useContext(UserPokemonsContext);
 
   useEffect(() => {
     if (auth.currentUser) {
@@ -20,40 +21,32 @@ const Home = () => {
     }
   }, [auth.currentUser]);
 
-  useEffect(() => {
-    const storedPokemon = localStorage.getItem("userPokemons");
-    if (storedPokemon) {
-      const parsedPokemon = JSON.parse(storedPokemon);
-      setUserPokemon(parsedPokemon);
-    }
-  }, []);
-
-  console.log(userPokemon);
+  console.log(userPokemons);
 
   const generateTeam = () => {
-		let newTeam = [];
-		let totalCost = 0;
-		const source = auth.currentUser && userPokemon.length > 1 ? userPokemon : pokemonData;
+    let newTeam = [];
+    let totalCost = 0;
+    const source = auth.currentUser && userPokemons.length > 1 ? userPokemons : pokemonData;
 
-		let securityIndex = 0;
-		while (
-			totalCost < maxCost &&
-			newTeam.length < (source.length > 6 ? 6 : source.length) &&
-			securityIndex < 100
-		) {
-			const randomIndex = Math.floor(Math.random() * source.length);
-			const pokemon = source[randomIndex];
+    let securityIndex = 0;
+    while (
+      totalCost < maxCost &&
+      newTeam.length < (source.length > 6 ? 6 : source.length) &&
+      securityIndex < 100
+    ) {
+      const randomIndex = Math.floor(Math.random() * source.length);
+      const pokemon = source[randomIndex];
 
-			if (totalCost + pokemon.cost <= maxCost && !newTeam.includes(pokemon)) {
-				newTeam.push(pokemon);
-				totalCost += pokemon.cost;
-			}
+      if (totalCost + pokemon.cost <= maxCost && !newTeam.includes(pokemon)) {
+        newTeam.push(pokemon);
+        totalCost += pokemon.cost;
+      }
 
-			securityIndex++;
-		}
+      securityIndex++;
+    }
 
-		setTeam(newTeam);
-	};
+    setTeam(newTeam);
+  };
 
   const handleClick = () => {
     generateTeam();
