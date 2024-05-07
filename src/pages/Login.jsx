@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
+import Header from "../components/layout/Header";
 import "../assets/Login.css";
 
 const Login = () => {
