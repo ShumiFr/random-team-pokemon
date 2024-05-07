@@ -6,7 +6,7 @@ const useTeamGeneration = (userPokemons) => {
   const [maxCost, setMaxCost] = useState(10);
 
   const handleGenerateTeam = () => {
-    generateTeam(maxCost, userPokemons, setTeam);
+    setTeam(generateTeam(maxCost, userPokemons));
   };
 
   const handleMaxCostChange = (event) => {

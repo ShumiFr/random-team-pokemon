@@ -22,5 +22,5 @@ export const generateTeam = (maxCost, userPokemons, setTeam) => {
     securityIndex++;
   }
 
-  setTeam(newTeam);
+  return newTeam;
 };
