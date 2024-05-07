@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
-import "../assets/Header.css";
+import "../../assets/Header.css";
 
 const Header = ({ username }) => {
   const location = useLocation();
@@ -23,7 +23,9 @@ const Header = ({ username }) => {
 
   return (
     <header>
-      <h1>Equipe Pokérogue aléatoire</h1>
+      <a href="/">
+        <h1>Equipe Pokérogue aléatoire</h1>
+      </a>
       {username && <h2>{username}</h2>}
       <nav>
         <ul>

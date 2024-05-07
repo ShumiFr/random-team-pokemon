@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getAuth } from "firebase/auth";
 import pokemonData from "../data/pokemon.json";
-import Header from "../components/Header";
+import Header from "../components/layout/Header";
 import PokemonTeam from "../components/PokemonTeam";
 import { UserPokemonsContext } from "../contexts/UserPokemonsContext";
 
