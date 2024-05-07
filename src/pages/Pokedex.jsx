@@ -85,23 +85,25 @@ const Pokedex = () => {
           <div className="pokedex">
             {pokemonData.map((pokemon) => {
               const color = colors[pokemon.type];
-              const isInCollection = userPokemons.some(
-                (userPokemon) => userPokemon.dex === pokemon.dex
-              );
+              const isInCollection =
+                userPokemons.some((userPokemon) => userPokemon.dex === pokemon.dex) ||
+                pokemon.permanent;
               return (
                 <div
                   className={`card ${!isInCollection ? "not-in-collection" : ""}`}
                   style={{ "--color": color }}
                   key={pokemon.dex}
                   onClick={() => {
-                    if (!isInCollection) {
-                      addPokemon(pokemon);
-                    } else {
-                      removePokemon(pokemon.dex);
+                    if (!pokemon.permanent) {
+                      if (!isInCollection) {
+                        addPokemon(pokemon);
+                      } else {
+                        removePokemon(pokemon.dex);
+                      }
                     }
                   }}
                 >
-                  {isInCollection && (
+                  {isInCollection && !pokemon.permanent && (
                     <div
                       className="remove-from-collection"
                       onClick={(e) => {

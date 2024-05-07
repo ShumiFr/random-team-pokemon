@@ -4,21 +4,24 @@
     "name": "Bulbizarre",
     "cost": 3,
     "image": "bulbasaur",
-    "type": "Grass"
+    "type": "Grass",
+    "permanent": true
   },
   {
     "dex": "4",
     "name": "Salamèche",
     "cost": 3,
     "image": "charmander",
-    "type": "Fire"
+    "type": "Fire",
+    "permanent": true
   },
   {
     "dex": "7",
     "name": "Carapuce",
     "cost": 3,
     "image": "squirtle",
-    "type": "Water"
+    "type": "Water",
+    "permanent": true
   },
   {
     "dex": "10",
@@ -683,21 +686,24 @@
     "name": "Germignon",
     "cost": 3,
     "image": "chikorita",
-    "type": "Grass"
+    "type": "Grass",
+    "permanent": true
   },
   {
     "dex": "155",
     "name": "Héricendre",
     "cost": 3,
     "image": "cyndaquil",
-    "type": "Fire"
+    "type": "Fire",
+    "permanent": true
   },
   {
     "dex": "158",
     "name": "Kaiminus",
     "cost": 3,
     "image": "totodile",
-    "type": "Water"
+    "type": "Water",
+    "permanent": true
   },
   {
     "dex": "161",
@@ -1117,21 +1123,24 @@
     "name": "Arcko",
     "cost": 3,
     "image": "treecko",
-    "type": "Grass"
+    "type": "Grass",
+    "permanent": true
   },
   {
     "dex": "255",
     "name": "Poussifeu",
     "cost": 3,
     "image": "torchic",
-    "type": "Fire"
+    "type": "Fire",
+    "permanent": true
   },
   {
     "dex": "258",
     "name": "Gobou",
     "cost": 3,
     "image": "mudkip",
-    "type": "Water"
+    "type": "Water",
+    "permanent": true
   },
   {
     "dex": "261",
@@ -1649,21 +1658,24 @@
     "name": "Tortipouss",
     "cost": 3,
     "image": "turtwig",
-    "type": "Grass"
+    "type": "Grass",
+    "permanent": true
   },
   {
     "dex": "390",
     "name": "Ouisticram",
     "cost": 3,
     "image": "chimchar",
-    "type": "Fire"
+    "type": "Fire",
+    "permanent": true
   },
   {
     "dex": "393",
     "name": "Tiplouf",
     "cost": 3,
     "image": "piplup",
-    "type": "Water"
+    "type": "Water",
+    "permanent": true
   },
   {
     "dex": "396",
@@ -2048,21 +2060,24 @@
     "name": "Vipélierre",
     "cost": 3,
     "image": "snivy",
-    "type": "Grass"
+    "type": "Grass",
+    "permanent": true
   },
   {
     "dex": "498",
     "name": "Gruikui",
     "cost": 3,
     "image": "tepig",
-    "type": "Fire"
+    "type": "Fire",
+    "permanent": true
   },
   {
     "dex": "501",
     "name": "Moustillon",
     "cost": 3,
     "image": "oshawott",
-    "type": "Water"
+    "type": "Water",
+    "permanent": true
   },
   {
     "dex": "504",
@@ -2643,21 +2658,24 @@
     "name": "Marisson",
     "cost": 3,
     "image": "chespin",
-    "type": "Grass"
+    "type": "Grass",
+    "permanent": true
   },
   {
     "dex": "653",
     "name": "Feunnec",
     "cost": 3,
     "image": "fennekin",
-    "type": "Fire"
+    "type": "Fire",
+    "permanent": true
   },
   {
     "dex": "656",
     "name": "Grenousse",
     "cost": 3,
     "image": "froakie",
-    "type": "Water"
+    "type": "Water",
+    "permanent": true
   },
   {
     "dex": "659",
@@ -2909,21 +2927,24 @@
     "name": "Brindibou",
     "cost": 3,
     "image": "rowlet",
-    "type": "Grass"
+    "type": "Grass",
+    "permanent": true
   },
   {
     "dex": "725",
     "name": "Flamiaou",
     "cost": 3,
     "image": "litten",
-    "type": "Fire"
+    "type": "Fire",
+    "permanent": true
   },
   {
     "dex": "728",
     "name": "Otaquin",
     "cost": 3,
     "image": "popplio",
-    "type": "Water"
+    "type": "Water",
+    "permanent": true
   },
   {
     "dex": "731",
@@ -3294,21 +3315,24 @@
     "name": "Ouistempo",
     "cost": 3,
     "image": "grookey",
-    "type": "Grass"
+    "type": "Grass",
+    "permanent": true
   },
   {
     "dex": "813",
     "name": "Flambino",
     "cost": 3,
     "image": "scorbunny",
-    "type": "Fire"
+    "type": "Fire",
+    "permanent": true
   },
   {
     "dex": "816",
     "name": "Larméléon",
     "cost": 3,
     "image": "sobble",
-    "type": "Water"
+    "type": "Water",
+    "permanent": true
   },
   {
     "dex": "819",
@@ -3637,21 +3661,24 @@
     "name": "Poussacha",
     "cost": 3,
     "image": "sprigatito",
-    "type": "Grass"
+    "type": "Grass",
+    "permanent": true
   },
   {
     "dex": "909",
     "name": "Chochodile",
     "cost": 3,
     "image": "fuecoco",
-    "type": "Fire"
+    "type": "Fire",
+    "permanent": true
   },
   {
     "dex": "912",
     "name": "Coiffeton",
     "cost": 3,
     "image": "quaxly",
-    "type": "Water"
+    "type": "Water",
+    "permanent": true
   },
   {
     "dex": "915",
@@ -3979,7 +4006,8 @@
     "dex": "996",
     "name": "Frigodo",
     "cost": 4,
-    "image": "frigibax"
+    "image": "frigibax",
+    "type": "Ice"
   },
   {
     "dex": "999",
@@ -4035,7 +4063,7 @@
     "name": "Koraidon",
     "cost": 8,
     "image": "Koraidon",
-    "type": "Fight"
+    "type": "Fighting"
   },
   {
     "dex": "1008",
