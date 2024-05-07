@@ -1,61 +1,18 @@
-import React, { useState, useEffect, useContext } from "react";
-import { getAuth } from "firebase/auth";
-import pokemonData from "../data/pokemon.json";
+// Home.jsx
+import React, { useContext } from "react";
 import Header from "../components/layout/Header";
-import PokemonTeam from "../components/PokemonTeam";
+import PokemonTeam from "../components/team/PokemonTeam";
 import { UserPokemonsContext } from "../contexts/UserPokemonsContext";
+import CostFilter from "../components/button/CostFilter";
+import GenerateTeamButton from "../components/button/GenerateTeamButton";
+import useAuth from "../hooks/useAuth";
+import useTeamGeneration from "../hooks/useTeamGeneration";
 
 const Home = () => {
-  const [username, setUsername] = useState("");
-  const auth = getAuth();
-  const [team, setTeam] = useState([]);
-  const [maxCost, setMaxCost] = useState(10);
+  const username = useAuth();
   const { userPokemons } = useContext(UserPokemonsContext);
-
-  useEffect(() => {
-    if (auth.currentUser) {
-      setUsername(auth.currentUser.displayName);
-      console.log("User is logged in");
-    } else {
-      console.log("User is not logged in");
-    }
-  }, [auth.currentUser]);
-
-  console.log(userPokemons);
-
-  const generateTeam = () => {
-    let newTeam = [];
-    let totalCost = 0;
-    const source = auth.currentUser && userPokemons.length > 1 ? userPokemons : pokemonData;
-
-    let securityIndex = 0;
-    while (
-      totalCost < maxCost &&
-      newTeam.length < (source.length > 6 ? 6 : source.length) &&
-      securityIndex < 100
-    ) {
-      const randomIndex = Math.floor(Math.random() * source.length);
-      const pokemon = source[randomIndex];
-
-      if (totalCost + pokemon.cost <= maxCost && !newTeam.includes(pokemon)) {
-        newTeam.push(pokemon);
-        totalCost += pokemon.cost;
-      }
-
-      securityIndex++;
-    }
-
-    setTeam(newTeam);
-  };
-
-  const handleClick = () => {
-    generateTeam();
-  };
-
-  // Fonction pour gérer le changement de coût maximum
-  const handleMaxCostChange = (event) => {
-    setMaxCost(parseInt(event.target.value));
-  };
+  const { team, maxCost, handleGenerateTeam, handleMaxCostChange } =
+    useTeamGeneration(userPokemons);
 
   return (
     <div className="main">
@@ -71,18 +28,8 @@ const Home = () => {
           redirigé vers leur page Smogon correspondante !
         </p>
       </div>
-      <div className="cost-filter">
-        <p>Coût maximum de l'équipe :</p>
-        <label>
-          <input type="radio" value="10" checked={maxCost === 10} onChange={handleMaxCostChange} />
-          <span>10</span>
-        </label>
-        <label>
-          <input type="radio" value="15" checked={maxCost === 15} onChange={handleMaxCostChange} />
-          <span>15</span>
-        </label>
-      </div>
-      <button onClick={handleClick}>Générer une nouvelle équipe</button>
+      <CostFilter maxCost={maxCost} onChange={handleMaxCostChange} />
+      <GenerateTeamButton onClick={handleGenerateTeam} />
       <PokemonTeam team={team} />
     </div>
   );

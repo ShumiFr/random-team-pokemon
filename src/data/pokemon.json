@@ -841,7 +841,7 @@
   {
     "dex": "198",
     "name": "Cornebre",
-    "cost": 3,
+    "cost": 4,
     "image": "murkrow",
     "type": "Dark"
   },
@@ -3278,7 +3278,7 @@
   {
     "dex": "803",
     "name": "Vémini",
-    "cost": 3,
+    "cost": 7,
     "image": "poipole",
     "type": "Poison"
   },

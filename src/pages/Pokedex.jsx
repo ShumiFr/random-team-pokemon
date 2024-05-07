@@ -1,20 +1,17 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { getAuth } from "firebase/auth";
 import pokemonData from "../data/pokemon.json";
 import Header from "../components/layout/Header";
-import "../assets/Pokedex.css";
-import "../assets/Home.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { UserPokemonsContext } from "../contexts/UserPokemonsContext";
-import colors from "../constants/Colors";
-import generation from "../constants/Generation";
+import "../styles/Pokedex.css";
+import "../styles/Home.css";
+import generation from "../constants/generation";
+import ScrollTopButton from "../components/button/ScrollTopButton";
+import GenerationNav from "../components/navigation/GenerationNav";
+import GenerationSection from "../components/section/GenerationSection";
 
 const Pokedex = () => {
   const auth = getAuth();
   const [username, setUsername] = useState("");
-  const [showScroll, setShowScroll] = useState(false);
-  const { addPokemon, removePokemon, userPokemons } = useContext(UserPokemonsContext);
 
   const updatedPokemonData = generation(pokemonData);
 
@@ -26,23 +23,6 @@ const Pokedex = () => {
     acc[generation].push(pokemon);
     return acc;
   }, {});
-
-  const scrollTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    const checkScrollTop = () => {
-      if (!showScroll && window.scrollY > 400) {
-        setShowScroll(true);
-      } else if (showScroll && window.scrollY <= 400) {
-        setShowScroll(false);
-      }
-    };
-
-    window.addEventListener("scroll", checkScrollTop);
-    return () => window.removeEventListener("scroll", checkScrollTop);
-  }, [showScroll]);
 
   useEffect(() => {
     if (auth.currentUser) {
@@ -61,71 +41,10 @@ const Pokedex = () => {
         </p>
         <p>Cliquez sur les cartes pour les ajouter ou les retirer de votre collection !</p>
       </div>
-      <div className="nav-generation">
-        <a href="#1">Génération 1</a>
-        <a href="#2">Génération 2</a>
-        <a href="#3">Génération 3</a>
-        <a href="#4">Génération 4</a>
-        <a href="#5">Génération 5</a>
-        <a href="#6">Génération 6</a>
-        <a href="#7">Génération 7</a>
-        <a href="#8">Génération 8</a>
-        <a href="#9">Génération 9</a>
-      </div>
-      <button
-        className="scrollTop"
-        onClick={scrollTop}
-        style={{ display: showScroll ? "flex" : "none" }}
-      >
-        <FontAwesomeIcon icon={faArrowUp} />
-      </button>
+      <GenerationNav />
+      <ScrollTopButton />
       {Object.entries(pokemonByGeneration).map(([generation, pokemonData]) => (
-        <section key={generation}>
-          <h2 id={generation}>Génération {generation}</h2>
-          <div className="pokedex">
-            {pokemonData.map((pokemon) => {
-              const color = colors[pokemon.type];
-              const isInCollection =
-                userPokemons.some((userPokemon) => userPokemon.dex === pokemon.dex) ||
-                pokemon.permanent;
-              return (
-                <div
-                  className={`card ${!isInCollection ? "not-in-collection" : ""}`}
-                  style={{ "--color": color }}
-                  key={pokemon.dex}
-                  onClick={() => {
-                    if (!pokemon.permanent) {
-                      if (!isInCollection) {
-                        addPokemon(pokemon);
-                      } else {
-                        removePokemon(pokemon.dex);
-                      }
-                    }
-                  }}
-                >
-                  {isInCollection && !pokemon.permanent && (
-                    <div
-                      className="remove-from-collection"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        removePokemon(pokemon.dex);
-                      }}
-                    >
-                      X
-                    </div>
-                  )}
-                  <img
-                    src={`https://assets.pokeos.com/pokemon/home/${pokemon.dex}.png`}
-                    alt={pokemon.name}
-                  />
-                  <h3>{pokemon.name}</h3>
-                  <p className="cost">{pokemon.cost}</p>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+        <GenerationSection key={generation} generation={generation} pokemonData={pokemonData} />
       ))}
     </div>
   );
