@@ -19,11 +19,12 @@ export const UserPokemonsProvider = ({ children }) => {
   }, [userPokemons]);
 
   const addPokemon = (pokemon) => {
-    setUserPokemons((prevPokemons) => [...prevPokemons, pokemon]);
+    setUserPokemons((dexs) => [...dexs, pokemon]);
   };
 
-  function removePokemon(dex) {
-    setUserPokemons((prevPokemons) => prevPokemons.filter((pokemon) => pokemon !== dex));
+  function removePokemon(pokemon) {
+    if (pokemon.permanent) return;
+    setUserPokemons((dexs) => dexs.filter((dex) => dex !== pokemon.dex));
   }
 
   return (

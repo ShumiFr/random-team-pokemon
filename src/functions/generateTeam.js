@@ -1,26 +1,27 @@
-import pokemonData from "../data/pokemon";
+import pokemons from '../data/pokemons';
 
-export const generateTeam = (maxCost, userPokemons, setTeam) => {
-  let newTeam = [];
-  let totalCost = 0;
-  const source = userPokemons.length > 1 ? userPokemons : pokemonData;
+export const generateTeam = (maxCost, pokemonsGiven) => {
+	let newTeam = [];
+	let totalCost = 0;
+	const source = pokemonsGiven.length > 1 ? pokemonsGiven : Object.keys(pokemons);
 
-  let securityIndex = 0;
-  while (
-    totalCost < maxCost &&
-    newTeam.length < (source.length > 6 ? 6 : source.length) &&
-    securityIndex < 100
-  ) {
-    const randomIndex = Math.floor(Math.random() * source.length);
-    const pokemon = source[randomIndex];
+	let securityIndex = 0;
+	while (
+		totalCost < maxCost &&
+		newTeam.length < (source.length > 6 ? 6 : source.length) &&
+		securityIndex < 100
+	) {
+		const randomIndex = Math.floor(Math.random() * source.length);
+		const dex = source[randomIndex];
+		const pokemon = pokemons[dex];
 
-    if (totalCost + pokemon.cost <= maxCost && !newTeam.includes(pokemon)) {
-      newTeam.push(pokemon);
-      totalCost += pokemon.cost;
-    }
+		if (totalCost + pokemon.cost <= maxCost && !newTeam.includes(dex)) {
+			newTeam.push(dex);
+			totalCost += pokemon.cost;
+		}
 
-    securityIndex++;
-  }
+		securityIndex++;
+	}
 
-  return newTeam;
+	return newTeam;
 };
