@@ -23,7 +23,7 @@ export const UserPokemonsProvider = ({ children }) => {
   };
 
   function removePokemon(dex) {
-    setUserPokemons((prevPokemons) => prevPokemons.filter((pokemon) => pokemon.dex !== dex));
+    setUserPokemons((prevPokemons) => prevPokemons.filter((pokemon) => pokemon !== dex));
   }
 
   return (

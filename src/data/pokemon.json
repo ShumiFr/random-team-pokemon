@@ -1888,11 +1888,11 @@
     "type": "Poison"
   },
   "454": {
-    "dex": "454",
+    "dex": "455",
     "name": "Vortente",
     "cost": 4,
     "image": "toxicroak",
-    "type": "Poison"
+    "type": "Grass"
   },
   "456": {
     "dex": "456",

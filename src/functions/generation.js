@@ -1,7 +1,7 @@
 // Generation.jsx
 const generation = (pokemonData) => {
   const genLimits = [151, 251, 386, 493, 649, 721, 809, 905];
-  const updatedPokemonData = pokemonData.map((pokemon) => {
+  const updatedPokemonData = Object.values(pokemonData).map((pokemon) => {
     const dexNumber = parseInt(pokemon.dex.split("-")[0]);
     const dexNumberRegional = pokemon.dex;
 

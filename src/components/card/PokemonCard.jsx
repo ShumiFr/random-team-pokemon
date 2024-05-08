@@ -16,7 +16,7 @@ const PokemonCard = ({ pokemon }) => {
       onClick={() => {
         if (!pokemon.permanent) {
           if (!isInCollection) {
-            addPokemon(pokemon);
+            addPokemon(pokemon.dex);
           } else {
             removePokemon(pokemon.dex);
           }
