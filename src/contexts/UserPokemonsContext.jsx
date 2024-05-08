@@ -6,9 +6,15 @@ export const UserPokemonsProvider = ({ children }) => {
   const [userPokemons, setUserPokemons] = useState([]);
 
   useEffect(() => {
-    const savedUserPokemons = localStorage.getItem(`user_pokemons`);
+    let savedUserPokemons = localStorage.getItem(`user_pokemons`);
     if (savedUserPokemons) {
-      setUserPokemons(JSON.parse(savedUserPokemons));
+      savedUserPokemons = JSON.parse(savedUserPokemons);
+
+      savedUserPokemons = savedUserPokemons.map((pokemon) =>
+        typeof pokemon === "string" ? pokemon : pokemon.dex
+      );
+
+      setUserPokemons(savedUserPokemons);
     }
   }, []);
 
@@ -18,8 +24,8 @@ export const UserPokemonsProvider = ({ children }) => {
     }
   }, [userPokemons]);
 
-  const addPokemon = (pokemon) => {
-    setUserPokemons((dexs) => [...dexs, pokemon]);
+  const addPokemon = (dex) => {
+    setUserPokemons((dexs) => [...dexs, dex]);
   };
 
   function removePokemon(pokemon) {
