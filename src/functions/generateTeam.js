@@ -1,4 +1,4 @@
-import pokemonData from "../data/pokemon.json";
+import pokemonData from "../data/pokemon";
 
 export const generateTeam = (maxCost, userPokemons, setTeam) => {
   let newTeam = [];
