@@ -86,10 +86,12 @@ export const UserPokemonsProvider = ({ children }) => {
     if (user?.uid) {
       getUserPokemon(user);
     }
+    // eslint-disable-next-line
   }, [user?.uid]);
 
   useEffect(() => {
     updateUserPokemonsInFirestore();
+    // eslint-disable-next-line
   }, [userPokemons]);
 
   const addPokemon = (dex) => {
