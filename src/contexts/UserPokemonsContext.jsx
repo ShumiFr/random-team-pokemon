@@ -1,70 +1,95 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../configs/firebase";
-import { collection, query, where, getDocs, addDoc } from "firebase/firestore";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { collection, query, where, getDocs, addDoc, doc, updateDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import pokemonData from "../data/pokemons.json";
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
 
 export const UserPokemonsContext = React.createContext();
-console.log("db", db);
 
 export const UserPokemonsProvider = ({ children }) => {
   const [userPokemons, setUserPokemons] = useState([]);
+  const { user } = useContext(UserContext);
+  const [userPokemonsUid, setUserPokemonsUid] = useState("");
   const auth = getAuth();
 
-  const migrateLocalStorageToFirestore = async (user, pokemonsToMigrate) => {
-    if (!pokemonsToMigrate) return;
+  const getUserPokemonFromLocalStorage = () => {
+    let pokemonsToMigrate = localStorage.getItem(`user_pokemons`);
+    if (pokemonsToMigrate) {
+      pokemonsToMigrate = JSON.parse(pokemonsToMigrate);
+      if (Array.isArray(pokemonsToMigrate) && pokemonsToMigrate.length > 0) {
+        pokemonsToMigrate = pokemonsToMigrate.map((pokemon) =>
+          typeof pokemon === "string" ? pokemon : pokemon.dex
+        );
 
-    try {
-      const docRef = await addDoc(collection(db, "userPokemons"), {
-        pokemons: pokemonsToMigrate,
-        userId: user.uid,
-      });
-      console.log("Document écrit avec l'ID: ", docRef.id);
+        const permanentPokemons = Object.values(pokemonData).filter(
+          (pokemon) => pokemon.permanent === true
+        );
 
-      localStorage.removeItem("user_pokemons");
-    } catch (e) {
-      console.error("Erreur lors de l'ajout du document: ", e);
+        const permaPokeNotInStorage = permanentPokemons.filter(
+          (pp) => !pokemonsToMigrate.includes(pp.dex)
+        );
+
+        pokemonsToMigrate = [...pokemonsToMigrate, ...permaPokeNotInStorage];
+
+        return pokemonsToMigrate;
+      }
+    }
+    return [];
+  };
+
+  const getUserPokemonsSnapshot = async (user) => {
+    const userPokemonsQuery = query(
+      collection(db, "userPokemons"),
+      where("userId", "==", user.uid)
+    );
+    const querySnapshot = await getDocs(userPokemonsQuery);
+    if (!querySnapshot.empty) {
+      setUserPokemonsUid(querySnapshot.docs[0].id);
+    }
+    return querySnapshot;
+  };
+
+  const updateUserPokemonsInFirestore = async () => {
+    if (userPokemons.length) {
+      try {
+        if (userPokemonsUid) {
+          const docRef = doc(db, "userPokemons", userPokemonsUid);
+          await updateDoc(docRef, {
+            pokemons: userPokemons,
+          });
+        } else {
+          const docRef = await addDoc(collection(db, "userPokemons"), {
+            userId: auth.currentUser.uid,
+            pokemons: userPokemons,
+          });
+          setUserPokemonsUid(docRef.id);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
+
+  const getUserPokemon = async (user) => {
+    const querySnapshot = await getUserPokemonsSnapshot(user);
+    if (querySnapshot.empty) {
+      const userPokemons = getUserPokemonFromLocalStorage();
+      setUserPokemons(userPokemons);
+    } else {
+      setUserPokemons(querySnapshot.docs[0].data().pokemons);
     }
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const userPokemonsQuery = query(
-          collection(db, "userPokemons"),
-          where("userId", "==", user.uid)
-        );
-
-        const querySnapshot = await getDocs(userPokemonsQuery);
-        if (querySnapshot.empty) {
-          let pokemonsToMigrate = localStorage.getItem(`user_pokemons`);
-          if (pokemonsToMigrate) {
-            pokemonsToMigrate = JSON.parse(pokemonsToMigrate);
-            if (Array.isArray(pokemonsToMigrate) && pokemonsToMigrate.length > 0) {
-              pokemonsToMigrate = pokemonsToMigrate.map((pokemon) =>
-                typeof pokemon === "string" ? pokemon : pokemon.dex
-              );
-
-              try {
-                await migrateLocalStorageToFirestore(user, pokemonsToMigrate);
-              } catch (error) {
-                console.error("Erreur lors de la migration des données :", error);
-              }
-            }
-          }
-        } else {
-          console.log("Des données existent déjà pour cet utilisateur en BDD.");
-        }
-      } else {
-        console.log("Aucun utilisateur connecté");
-      }
-    });
-    return () => unsubscribe();
-  }, [auth]);
+    if (user?.uid) {
+      getUserPokemon(user);
+    }
+  }, [user?.uid]);
 
   useEffect(() => {
-    if (userPokemons.length) {
-      db.setItem(`user_pokemons`, JSON.stringify(userPokemons));
-    }
+    updateUserPokemonsInFirestore();
   }, [userPokemons]);
 
   const addPokemon = (dex) => {

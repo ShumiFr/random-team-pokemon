@@ -1,4 +1,3 @@
-// Home.jsx
 import React, { useContext } from "react";
 import Header from "../components/layout/Header";
 import PokemonTeam from "../components/team/PokemonTeam";
