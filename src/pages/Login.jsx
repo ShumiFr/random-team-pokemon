@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/layout/Header";
-import "../assets/Login.css";
+import "../styles/Login.css";
+import FormField from "../components/form/FormField";
+import ErrorMessage from "../components/messages/ErrorMessage";
+import SuccessMessage from "../components/messages/SuccessMessage";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -42,26 +45,21 @@ const Login = () => {
       setLoading(false);
     }
   };
+
   return (
     <div className="login-page">
       <Header username={username} />
       <div className="login-page_content">
         <h2 className="login-page_h2">Connexion</h2>
-        {successMessage && <div className="success-message">{successMessage}</div>}
-        {error && <p className="error-message">{error}</p>}
-        <div className="field">
-          <label className="field_label">Email:</label>
-          <input className="field_input" type="email" value={email} onChange={handleEmailChange} />
-        </div>
-        <div className="field">
-          <label className="field_label">Mot de passe:</label>
-          <input
-            className="field_input"
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-        </div>
+        <SuccessMessage message={successMessage} />
+        <ErrorMessage message={error} />
+        <FormField type="email" value={email} onChange={handleEmailChange} label="Email:" />
+        <FormField
+          type="password"
+          value={password}
+          onChange={handlePasswordChange}
+          label="Mot de passe:"
+        />
         <button className="login-page_button" onClick={handleLogin} disabled={loading}>
           Se connecter
         </button>

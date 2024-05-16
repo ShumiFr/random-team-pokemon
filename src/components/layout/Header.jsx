@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
-import "../../assets/Header.css";
+import "../../styles/Header.css";
 
 const Header = ({ username }) => {
   const location = useLocation();
